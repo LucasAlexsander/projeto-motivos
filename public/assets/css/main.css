@@ -1,0 +1,151 @@
+.s006 {
+  min-height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  background: url("../images/Search_07.jpg");
+  background-size: cover;
+  background-position: center center;
+  padding: 15px;
+}
+
+.s006 form {
+  width: 100%;
+  max-width: 790px;
+}
+
+.s006 form legend {
+  font-size: 36px;
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 59px;
+}
+
+.s006 form .inner-form {
+  width: 100%;
+  margin-bottom: 17px;
+}
+
+.s006 form .inner-form .input-field {
+  height: 70px;
+  width: 100%;
+  position: relative;
+}
+
+.s006 form .inner-form .input-field input {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  background: #fff;
+  display: block;
+  width: 100%;
+  padding: 10px 32px 10px 70px;
+  font-size: 18px;
+  color: #666;
+  border-radius: 34px;
+}
+
+.s006 form .suggestion-wrap {
+  padding: 0 15px;
+}
+
+.s006 form .suggestion-wrap span {
+  font-size: 14px;
+  font-family: 'Helvetica', sans-serif;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0 15px;
+  line-height: 32px;
+  color: #fff;
+  border-radius: 16px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.reativa-text{
+background-color: rgba(0, 0, 0, 0.6) !important;
+opacity: 1;
+color: #fff !important; 
+}
+
+/*  Nav Pills */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+  color: #495057;
+  background-color: #fff;
+  margin-right: 2px;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+/*  Nav Pills */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: #fff !important;
+  background-color: #007bff !important;
+  border-color: #dee2e6 #dee2e6 #fff !important;
+}
+/* Fim - Nav Pills */
+
+/* Button1 */
+  .button1 {
+    padding: 6px 15px 6px 15px !important;
+  }
+/* Fim - Button1 */
+
+/* Button2 */
+.button2 {
+  padding: 10px 25px 10px 25px !important;
+}
+/* Fim - Button1 */
+
+/* Result */
+.result {
+  margin-top: 50px !important;
+}
+/* Fim - result */
+
+/* Botão Scroll */
+.scroll_btn {
+  border:0;
+  background-color: #007bff;
+  border-radius: 25px;
+  color:#fff;
+  padding:1rem;
+  font-size: 1rem;
+  position: fixed;
+  bottom:1rem;
+  right: 1rem;
+   }
+/* Fim - Botão Scroll */
+
+/* Botão fechar */
+.fechar_btn {
+  border:0;
+  background-color: transparent;
+  border-radius: 15px;
+  color:black;
+  padding:1rem;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 1rem;
+}
+/* Fim - Botão fechar */
+
+@media screen and (max-width: 767px) {
+  .s006 form .inner-form .input-field {
+    margin-bottom: 20px;
+    height: 50px;
+  }
+  .s006 form .inner-form .input-field input {
+    padding-left: 55px;
+    font-size: 16px;
+  }
+  .s006 form .inner-form .input-field .btn-search svg {
+    width: 26px;
+    height: 26px;
+  }
+}
