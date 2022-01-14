@@ -13,9 +13,9 @@ abstract class Action {
     protected function render($view, $layout = '') {
         $this->view->page = $view;     
         
-        $phtml_layout = "../App/Views/".$layout.".phtml";
-        $html_layout ="../App/Views/".$layout.".php";
-        $php_layout = "../App/Views/".$layout.".html";
+        $phtml_layout = "../App/Views/Partials/".$layout.".phtml";
+        $html_layout ="../App/Views/Partials/".$layout.".php";
+        $php_layout = "../App/Views/Partials/".$layout.".html";
 
 
         //Procura páginas de Layout com o final HTML, PHP, PHTML
@@ -42,7 +42,7 @@ abstract class Action {
     protected function content() {
         $classAtual = get_class($this); //Pegamos o diretorio da onde esta o Controller = App/Controller/IndexController
 
-        $classAtual = str_replace('App\\Controllers\\', '', $classAtual); //Tiramos o path e deixamos somente o nome da classe
+        $classAtual = str_replace('App\\Controllers\\', '', $classAtual); //Tiramos o path e deixamos somente o nome da classe | IndexController
 
         $classAtual = strtolower(str_replace('Controller', '', $classAtual)); //Tiramos o "Controller" por ser um nome comum em todos os controllers
 
@@ -51,6 +51,8 @@ abstract class Action {
         $phtml_page = "../App/Views/".$classAtual."/".$this->view->page.".phtml";
         $html_page = "../App/Views/".$classAtual."/".$this->view->page.".html";
         $php_page = "../App/Views/".$classAtual."/".$this->view->page.".php";
+        $error = "../App/Views/".$classAtual."/".$this->view->page.".php";
+        $page404 = "../App/Views/Index/404.php";
 
 
 		if (file_exists($phtml_page)) {
@@ -65,7 +67,7 @@ abstract class Action {
 
 			require_once $php_page;
 
-		}
+		} 
 
         $css = "../App/Views/Assets/css/".$this->view->page.".css";
 

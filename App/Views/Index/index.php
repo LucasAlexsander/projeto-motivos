@@ -1,3 +1,13 @@
+<?php
+
+
+
+?>
+
+<head>
+  <title>INSS - Consultar Motivo</title>
+</head>
+
 <body>
   <div class="s006" id="topo">
     <form>

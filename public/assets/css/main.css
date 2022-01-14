@@ -1,3 +1,6 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
+
 .s006 {
   min-height: 100vh;
   display: -ms-flexbox;
@@ -147,5 +150,167 @@ color: #fff !important;
   .s006 form .inner-form .input-field .btn-search svg {
     width: 26px;
     height: 26px;
+  }
+}
+
+
+/* Página de erro / Página não encontrada */
+
+/* Body */
+#errorPage {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background: whitesmoke;
+}
+
+#errorPage .container {
+  width: 1440px;
+  height: auto;
+  flex-direction: column;
+}
+#errorPage, #errorPage .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#errorPage .container .imgError,
+#errorPage .container .errorText {
+  width: 800px;
+  height: auto;
+  padding-left: 30rem;
+}
+
+/* Imagem com 800px e 520px */
+#errorPage .container .imgError img {
+  width: 30em;
+  height: auto;
+}
+
+#errorPage .container .errorText h1 {
+  color: #5762B7;
+}
+#errorPage .container .errorText {
+  color: #929CE8;
+  font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
+}
+
+#errorPage .container .errorText .btn {
+  display: inline-block;
+  border: 2px solid #5762B7;
+  padding: 6px 10px;
+  border-radius: 30px;
+}
+
+
+#errorPage .container .errorText .btn a {
+  text-decoration: none;
+  color: #5762B7;
+}
+
+#errorPage .container .errorText .btn:hover, 
+#errorPage .container .errorText .btn:hover a {
+  background-color: #929CE8;
+  color: whitesmoke;
+}
+
+/* Página do Amin */
+#adminPage {
+  background: whitesmoke;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#adminPage table {
+  width: 100%;
+}
+
+/* Editando a página Edition Page */
+#editPage {
+  background: url("../images/Search_07.jpg");
+  overflow-x: hidden;
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Vou alterar quando for mexer no Form */
+  font-family: 'Nunito', 'Poppins', sans-serif; /* Vou alterar quando for mexer no Form */
+}
+#editPage .container {
+  max-width: 1140px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#editPage .container .text-area {
+  display: flex;
+  justify-content: center;
+  margin: -40px 0px 20px 0px;
+}
+#editPage .container form {
+  max-width: 1000px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+#editPage .container form label:nth-child(1) input {
+  width: 50px;
+  text-align: center;
+  padding-left: 0px;
+}
+#editPage .container form label p {
+  margin: 0px 0px 0px 10px;
+  font-family: 'Nunito', 'Poppins', sans-serif;
+}
+
+#editPage .container form label input {
+  border-radius: .45rem;
+  width: 400px;
+  height: 35px;
+  padding-left: 10px;
+  outline: none;
+  margin: 0px 15px 25px 15px;
+}
+
+#editPage .container form label textarea {
+  border-radius: 0.30rem;
+  height: auto;
+  padding-left: 10px;
+  outline: none;
+  margin-bottom: 25px;
+}
+
+
+#editPage .container form input[type="submit"] {
+  height: 40px;
+  width: 80px;
+  margin: auto 25px;
+  border-radius: .85rem;
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+}
+#editPage .container form input[type="submit"]:hover {
+  background: #999;
+  color: whitesmoke;
+  border: 1px solid #999;
+}
+
+/* Responsivdade no Edit Page */
+@media (max-width: 1040px) {
+  #editPage .container form label input,
+  #editPage .container form label textarea {
+    width: 380px;
   }
 }

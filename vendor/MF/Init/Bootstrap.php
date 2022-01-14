@@ -23,7 +23,7 @@
             $this->routes = $routes;
         }
 
-        protected function run($url) {
+        protected function run($url) { //url é igual a rota, index = /
             foreach ($this->getRoutes() as $key => $route) {
     
     
@@ -36,14 +36,13 @@
                     $action = $route['action'];
     
                     $controller->$action();
-    
-                    exit;
-                }
+  
+                } 
             }
         }
     
         protected function getUrl() { //Path acessado pelo usuário
-            return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+            return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH); //É a rota, index = /
         }
     }
 

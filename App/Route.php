@@ -6,22 +6,29 @@ use MF\Init\Bootstrap;
 class Route extends Bootstrap {   
 
     protected function initRoutes() {
-        $routes['home'] = array ( //URL
+        $routes['home'] = array ( //Nome do Array
             'route' => '/', //Rota
             'controller' => 'indexController', //Controller usado para a rota
             'action' => 'index' //Ação
         );
 
-        $routes['sobre_nos'] = array (
-            'route' => '/sobre_nos', 
+        $routes['admin'] = array (
+            'route' => '/admin', 
             'controller' => 'indexController',
-            'action' => 'sobreNos'
+            'action' => 'admin'
         );
 
-        $routes['excluir'] = array (
-            'route' => '/excluir',
+
+        $routes['editar'] = array (
+            'route' => '/Editar',
             'controller' => 'IndexController',
-            'action' => 'excluir'
+            'action' => 'editar'
+        );
+
+        $routes['envioUpdate'] = array (
+            'route' => '/procEnvio',
+            'controller' => 'IndexController',
+            'action' => 'envio'
         );
         
         
