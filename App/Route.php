@@ -20,15 +20,33 @@ class Route extends Bootstrap {
 
 
         $routes['editar'] = array (
-            'route' => '/Editar',
+            'route' => '/editar',
             'controller' => 'IndexController',
             'action' => 'editar'
+        );
+
+        $routes['criarMot'] = array (
+            'route' => '/criarMot',
+            'controller' => 'IndexController',
+            'action' => 'criarMot'
         );
 
         $routes['envioUpdate'] = array (
             'route' => '/procEnvio',
             'controller' => 'IndexController',
-            'action' => 'envio'
+            'action' => 'procEnvio'
+        );
+
+        $routes['delete'] = array (
+            'route' => '/excluir',
+            'controller' => 'IndexController',
+            'action' => 'delete'
+        );
+
+        $routes['addReg'] = array (
+            'route' => '/addReg',
+            'controller' => 'IndexController',
+            'action' => 'addReg'
         );
         
         

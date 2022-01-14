@@ -87,7 +87,7 @@
     <label>
         <p>Conceito e Finalidade:</p> 
         <textarea name="conc_final" cols="100" rows="6">
-            <?=$item['3']?>
+            <?=trim($item['3'])?>
         </textarea>
     </label>
     
@@ -96,7 +96,7 @@
     <label>
         <p>Prisma_sabi:</p> 
         <textarea style="resize: none;" name="prisma_sabi" cols="50" rows="1">
-            <?=$item['4']?>
+            <?=trim($item['4'])?>
         </textarea>
     </label>
 
@@ -105,7 +105,7 @@
     <label>
         <p>Reatnb_plenus:</p>
         <textarea style="resize: none;" name="reatnb_plenus" cols="50" rows="1">
-            <?=$item['5']?>
+            <?=trim($item['5'])?>
         </textarea>
     </label>
 
@@ -114,13 +114,16 @@
     <label>
         <p>Situação:</p> 
         <textarea name="situacao" cols="50" rows="6">
-            <?=$item['6']?>
+            <?=trim($item['6'])?>
         </textarea>
     </label>
    
    <?php endif; ?>
     
     <input type="submit" value="Salvar">
+    <div class="button-back">
+        <a href="/admin">Voltar</a>
+    </div>
     
-</form>   
+</form>
 </div>

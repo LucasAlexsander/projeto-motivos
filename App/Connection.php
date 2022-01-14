@@ -20,7 +20,7 @@ class Connection {
                 $dbPass
             );
 
-            return $pdo; //Precisamos returnar o $conn para efetuar a conexão
+            return $pdo; //Precisamos returnar o $pdo para efetuar a conexão
 
         } catch (\PDOException $e) {
             //..Tratar de alguma forma..//

@@ -256,7 +256,7 @@ color: #fff !important;
 #editPage .container .text-area {
   display: flex;
   justify-content: center;
-  margin: -40px 0px 20px 0px;
+  margin: 35px 0px 20px 0px;
 }
 #editPage .container form {
   max-width: 1000px;

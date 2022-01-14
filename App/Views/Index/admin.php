@@ -22,6 +22,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
+                    <div class="button-absolute"> <!-- Botão para adicionar  -->
+                                <a href="/addReg">Adicionar</a>
+                        </div>
                     <table id="listar_dados" class="listar_dados table table-striped table-bordered" style="width: 100%;">  
                         <thead>
                             <tr>
@@ -43,8 +46,8 @@
                                     <td><?=$cessacao['nome']?></td>
                                     <td><?=$cessacao['situacao']?></td>
                                     <td>
-                                        <a href="/Excluir">[ excluir ]</a><br>
-                                        <a href="/Editar?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao">[ Editar ]</a>
+                                        <a href="/excluir?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao" onclick="return confirm('Deseja excluir?')">[ excluir ]</a><br>
+                                        <a href="/editar?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao">[ Editar ]</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -64,6 +67,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
+                    <div class="button-absolute">
+                                <a href="/addReg">Adicionar</a>
+                        </div>
                     <table id="listar_dados1" class="table table-striped table-bordered" style="width: 100%;">  
                         <thead>
                             <tr>
@@ -83,8 +89,8 @@
                                     <td><?=$reativacao['codigo']?></td>
                                     <td><?=$reativacao['nome']?></td>
                                     <td>
-                                        <a href="/Excluir">[ excluir ]</a><br>
-                                        <a href="/Editar?id=<?=$reativacao['id_reativacao']?>&nome=reativacao">[ Editar ]</a>
+                                        <a href="/excluir?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao" onclick="return confirm('Deseja excluir?')">[ excluir ]</a><br>
+                                        <a href="/editar?id=<?=$reativacao['id_reativacao']?>&nome=reativacao">[ Editar ]</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -104,6 +110,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
+                    <div class="button-absolute">
+                            <a href="/addReg">Adicionar</a>
+                    </div>
                     <table id="listar_dados2" class="table table-striped table-bordered" style="width: 100%;">  
                         <thead>
                             <tr>
@@ -125,8 +134,8 @@
                                     <td><?=$suspensao['nome']?></td>
                                     <td><?=$suspensao['situacao']?></td>
                                     <td>
-                                        <a href="/Excluir">[ excluir ]</a><br>
-                                        <a href="/Editar?id=<?=$suspensao['id_suspensao']?>&nome=suspensao">[ Editar ]</a>
+                                        <a href="/excluir?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao" onclick="return confirm('Deseja excluir?')">[ excluir ]</a><br>
+                                        <a href="/editar?id=<?=$suspensao['id_suspensao']?>&nome=suspensao">[ Editar ]</a>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>

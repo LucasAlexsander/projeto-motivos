@@ -15,8 +15,6 @@ class Reativacao extends Model {
 
     }
 
-    public function update() {
-        $sql = "UPDATE reativacao SET  ";
-    }
+    
 }
 ?>

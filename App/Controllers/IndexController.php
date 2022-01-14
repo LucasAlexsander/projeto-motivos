@@ -3,13 +3,12 @@
 namespace App\Controllers;
 
 //Recursos do miniframework (MF)
+
+use App\Models\CrudDbDelete;
 use MF\Controller\Action;
 use MF\Model\Container;
 //Os models
 
-use App\Models\Cessacao;
-use App\Models\Reativacao;
-use App\Models\Suspensao;
 
 
 class IndexController extends Action {    
@@ -70,10 +69,92 @@ class IndexController extends Action {
         $this->render('editar', 'layoutPadrao');
     }
 
-    public function envio () {
+    public function criarMot () {
+
+        /* echo '<pre>';
+        print_r($_POST);
+        echo '</pre>'; */
+
+        $editar = Container::getModel("CrudDbCriarMot");
+
+        $tableName = $editar->__set('tableName', $_POST['tableName']);
+        $editar->__set('id', $_POST['id']);
+        $editar->__set('codigo', $_POST['codigo']);
+        $editar->__set('nome', $_POST['nome']);
+        $editar->__set('conc_final', $_POST['conc_final']);
+        $editar->__set('prisma_sabi', $_POST['prisma_sabi']);
+        $editar->__set('reatnb_plenus', $_POST['reatnb_plenus']);
+        $editar->__set('situacao', $_POST['situacao']);
+
+        echo '<pre>';
+        print_r($_POST['tableName']);
+        echo '</pre>';
+
+
+        /* $editar->add($tableName); */
+        
+            
+
+
+        $this->render('criarMot', 'layoutPadrao');
+    }
+
+    public function procEnvio () {
+
+        $procEnvio = Container::getModel('CrudDbProcEnvio');
+
+        echo '<pre>';
+        echo "POST:";
+        print_r($_POST);
+        echo '</pre><hr>';
+
+        $id = filter_input(INPUT_POST, 'id');
+        
+        $tableName = $procEnvio->__set('tableName', $_POST['tableName']);
+        $procEnvio->__set('id', $_POST['id']);
+        $procEnvio->__set('codigo', $_POST['codigo']);
+        $procEnvio->__set('nome', $_POST['nome']);
+        @$procEnvio->__set('conc_final', $_POST['conc_final']);
+        @$procEnvio->__set('prisma_sabi', $_POST['prisma_sabi']);
+        @$procEnvio->__set('reatnb_plenus', $_POST['reatnb_plenus']);
+        @$procEnvio->__set('situacao', $_POST['situacao']);
+        $tableNameVerif = $_POST['tableName'];
+
+        echo '<pre>';
+        echo "PROCENVIO:";
+        print_r($procEnvio);
+        echo '</pre><hr>';
+
+        if ($_POST) {
+
+            $procEnvio->update($tableNameVerif, $id);        
+           
+        } else {
+            echo "Erro";
+        }
+
 
         $this->render('procEnvio', 'layoutPadrao');
     }
+
+    public function delete () {
+
+        $tableName = filter_input(INPUT_GET, 'nome');
+        $tableId = filter_input(INPUT_GET, 'id');
+
+        $delete = Container::getModel('CrudDbDelete');
+
+        $delete->delete($tableName, $tableId);
+
+        $this->render('excluir', 'layoutPadrao');
+    }
+
+    public function addReg() {
+
+
+        $this->render('addReg', 'layoutPadrao');
+    }
+
 }
 
 
