@@ -29,7 +29,7 @@
 
     } elseif (($tbNome === "suspensao") && !(empty($this->view->suspensao))) {
 
-        $NomeTabela = 'Suspensão';
+        $NomeTabela = 'Suspesão';
         foreach ($this->view->suspensao as $item);
         
     }
@@ -95,34 +95,30 @@
 
     <label>
         <p>Prisma_sabi:</p> 
-        <textarea style="resize: none;" name="prisma_sabi" cols="50" rows="1">
-            <?=trim($item['4'])?>
-        </textarea>
+        <textarea style="resize: none;" name="prisma_sabi" cols="50" rows="1"><?=trim($item['4'])?></textarea>
     </label>
 
     <br><br>
 
     <label>
         <p>Reatnb_plenus:</p>
-        <textarea style="resize: none;" name="reatnb_plenus" cols="50" rows="1">
-            <?=trim($item['5'])?>
-        </textarea>
+        <textarea style="resize: none;" name="reatnb_plenus" cols="50" rows="1"><?=trim($item['5'])?></textarea>
     </label>
 
     <br><br>
 
     <label>
         <p>Situação:</p> 
-        <textarea name="situacao" cols="50" rows="6">
-            <?=trim($item['6'])?>
-        </textarea>
+        <textarea name="situacao" cols="50" rows="6"><?=trim($item['6'])?></textarea>
     </label>
    
    <?php endif; ?>
     
-    <input type="submit" value="Salvar">
-    <div class="button-back">
-        <a href="/admin">Voltar</a>
+   <div class="button-area-form">
+        <input type="submit" value="Salvar">
+        <div class="button-back">
+            <a href="/admin">Voltar</a>
+        </div>
     </div>
     
 </form>

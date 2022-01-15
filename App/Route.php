@@ -14,7 +14,7 @@ class Route extends Bootstrap {
 
         $routes['admin'] = array (
             'route' => '/admin', 
-            'controller' => 'indexController',
+            'controller' => 'IndexController',
             'action' => 'admin'
         );
 
@@ -27,19 +27,19 @@ class Route extends Bootstrap {
 
         $routes['criarMot'] = array (
             'route' => '/criarMot',
-            'controller' => 'IndexController',
+            'controller' => 'CrudController',
             'action' => 'criarMot'
         );
 
         $routes['envioUpdate'] = array (
             'route' => '/procEnvio',
-            'controller' => 'IndexController',
+            'controller' => 'CrudController',
             'action' => 'procEnvio'
         );
 
         $routes['delete'] = array (
             'route' => '/excluir',
-            'controller' => 'IndexController',
+            'controller' => 'CrudController',
             'action' => 'delete'
         );
 
@@ -47,6 +47,12 @@ class Route extends Bootstrap {
             'route' => '/addReg',
             'controller' => 'IndexController',
             'action' => 'addReg'
+        );
+
+        $routes['addRegDb'] = array (
+            'route' => '/addReg/Db',
+            'controller' => 'CrudController',
+            'action' => 'addRegDb'
         );
         
         

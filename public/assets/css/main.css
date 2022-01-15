@@ -16,6 +16,20 @@
   padding: 15px;
 }
 
+.s006 #button-admin-page { /* Altera com base no User */
+  display: none;
+  display: block;
+  position: absolute;
+  top: 5%;
+  right: 7%;
+  border-radius: .25rem;
+  padding: 0.5rem 1.25rem;
+}
+.s006 #button-admin-page:hover {
+ background-color: #007bff;
+  color: #fff;  
+}
+
 .s006 form {
   width: 100%;
   max-width: 790px;
@@ -255,11 +269,18 @@ color: #fff !important;
 }
 #editPage .container .text-area {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   margin: 35px 0px 20px 0px;
 }
+
+#editPage .container .text-area h1 {
+  text-align: center;
+
+}
 #editPage .container form {
   max-width: 1000px;
+  height: auto;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -292,20 +313,41 @@ color: #fff !important;
 }
 
 
-#editPage .container form input[type="submit"] {
+#editPage .container form .button-area-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  margin-right: 50px;
+}
+
+#editPage .container form input[type="submit"],
+.button-back a {
   height: 40px;
   width: 80px;
-  margin: auto 25px;
   border-radius: .85rem;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0);
   color: black;
-  cursor: pointer;
+  cursor: pointer;  
+  padding: .4rem .7rem;  
+  text-decoration: none;
+  background: whitesmoke;
 }
-#editPage .container form input[type="submit"]:hover {
+#editPage .container form input[type="submit"]:hover,
+.button-back a:hover {
   background: #999;
   color: whitesmoke;
-  border: 1px solid #999;
+  border: 1px solid #999;  
+  text-decoration: none;
 }
+/* Botão de voltar da Página Editar */
+
+.button-area-form .button-back a {
+  padding: .5rem 1.1rem; 
+  margin: 0px;
+}
+
 
 /* Responsivdade no Edit Page */
 @media (max-width: 1040px) {
@@ -313,4 +355,23 @@ color: #fff !important;
   #editPage .container form label textarea {
     width: 380px;
   }
+}
+
+
+
+/* Botão de adicionar na página de Admin */
+.button-absolute {
+  margin-bottom: 3px;
+  margin-left: 200px;
+}
+
+.button-absolute .button-absolute-text {
+  position: absolute;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  z-index: 1; /* Trás o elemento para frente */
+}
+
+.button-absolute .button-absolute-text a {
+  color: black;
 }

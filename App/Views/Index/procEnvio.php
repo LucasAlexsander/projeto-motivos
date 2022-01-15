@@ -1,1 +1,0 @@
-<!-- Necessario para conseguir enviar os registros para o Banco de Dados -->

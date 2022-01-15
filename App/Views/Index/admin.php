@@ -23,8 +23,10 @@
             <div class="col-lg-12">
                 <div class="table-responsive">
                     <div class="button-absolute"> <!-- Botão para adicionar  -->
-                                <a href="/addReg">Adicionar</a>
+                        <div class="button-absolute-text">
+                            <a href="/addReg?tb=cessacao">[ Adicionar Registro ]</a>
                         </div>
+                    </div>
                     <table id="listar_dados" class="listar_dados table table-striped table-bordered" style="width: 100%;">  
                         <thead>
                             <tr>
@@ -68,7 +70,9 @@
             <div class="col-lg-12">
                 <div class="table-responsive">
                     <div class="button-absolute">
-                                <a href="/addReg">Adicionar</a>
+                        <div class="button-absolute-text">
+                            <a href="/addReg?tb=reativacao">[ Adicionar Registro ]</a>
+                        </div>
                         </div>
                     <table id="listar_dados1" class="table table-striped table-bordered" style="width: 100%;">  
                         <thead>
@@ -111,7 +115,9 @@
             <div class="col-lg-12">
                 <div class="table-responsive">
                     <div class="button-absolute">
-                            <a href="/addReg">Adicionar</a>
+                        <div class="button-absolute-text">
+                            <a href="/addReg?tb=suspensao">[ Adicionar Registro ]</a>
+                        </div>
                     </div>
                     <table id="listar_dados2" class="table table-striped table-bordered" style="width: 100%;">  
                         <thead>

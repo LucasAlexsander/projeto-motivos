@@ -10,23 +10,7 @@ use MF\Model\Container;
 
 
 
-class IndexController extends Action {    
-
-    public function index() { //Devemos sempre pegar com base a pasta public/ index, já que lá esta tendo um autoload
-        //$this->view->dados = array ('Sofá', 'Cadeira', 'Cama'); //Manda a variável para a página atribuida no render.
-
-        //$cessacao = Container::getModel("Cessacao"); //Busca o Model desejado
-        
-
-        //$cessacao = Container::getModel("Cessacao");
-
-        //$this->view->dados = 'Olá';
-        
-                
-
-      //$this->render('page', 'layout');  Estrutura Padrão
-        $this->render('index', 'layoutPadrao'); //Recebe como parametro a página que vc quer ir e o seu layout (opcional), respectivamente;
-    }
+class CrudController extends Action {    
     
     public function admin() {     
         
@@ -98,7 +82,6 @@ class IndexController extends Action {
             echo "Erro";
         }
 
-
         $this->render('procEnvio', 'layoutPadrao');
     }
 
@@ -110,13 +93,6 @@ class IndexController extends Action {
         $delete = Container::getModel('CrudDbDelete');
 
         $delete->delete($tableName, $tableId);
-
-        $this->render('excluir', 'layoutPadrao');
-    }
-
-    public function addReg() {
-
-        $this->render('addReg', 'layoutPadrao');
     }
 
     public function addRegDb() {
@@ -138,10 +114,8 @@ class IndexController extends Action {
             $add->__set('situacao', $_POST['situacao']);
 
         } 
-
+                
         $add->addReg($tableName);    
     }
 }
-
-
 ?>
