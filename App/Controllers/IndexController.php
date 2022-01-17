@@ -10,9 +10,14 @@ use MF\Model\Container;
 
 
 
-class IndexController extends Action {    
+class IndexController extends Action {   
+    
+    public function login () {
 
-    public function index() { //Devemos sempre pegar com base a pasta public/ index, já que lá esta tendo um autoload
+        $this->render('index', 'loginLayout');
+    }
+
+    public function home() { //Devemos sempre pegar com base a pasta public/ index, já que lá esta tendo um autoload
         //$this->view->dados = array ('Sofá', 'Cadeira', 'Cama'); //Manda a variável para a página atribuida no render.
 
         //$cessacao = Container::getModel("Cessacao"); //Busca o Model desejado
@@ -25,22 +30,22 @@ class IndexController extends Action {
                 
 
       //$this->render('page', 'layout');  Estrutura Padrão
-        $this->render('index', 'layoutPadrao'); //Recebe como parametro a página que vc quer ir e o seu layout (opcional), respectivamente;
+        $this->render('home', 'layoutPadrao'); //Recebe como parametro a página que vc quer ir e o seu layout (opcional), respectivamente;
     }
     
     public function admin() {     
-        
-        //Chamanda os registros de Cessação
-        $cessacao = Container::getModel("Cessacao");
-        $this->view->cessacao = $cessacao->findAll('cessacao');
 
-        //Chamando os registros de Reativação
-        $reativacao = Container::getModel("Reativacao");
-        $this->view->reativacao = $reativacao->findAll('reativacao');
 
-        //Chamando os registros de Suspensão
-        $suspensao = Container::getModel("Suspensao");
-        $this->view->suspensao = $suspensao->findAll('suspensao');
+        $findAll = Container::getModel('CrudDbFindAll');
+
+        $cessacao = $findAll->findAll('cessacao');
+        $this->view->cessacao = $cessacao;
+
+        $reativacao = $findAll->findAll('reativacao');
+        $this->view->reativacao = $reativacao;
+    
+        $suspensao = $findAll->findAll('suspensao');
+        $this->view->suspensao = $suspensao;
 
         $this->render('admin', 'layoutPadrao'); 
     }
@@ -48,58 +53,33 @@ class IndexController extends Action {
     public function editar() {
 
         $id = filter_input(INPUT_GET, 'id');
+        $tableName = filter_input(INPUT_GET, 'nome');
 
-        //Chamanda os registros de Cessação
-        $cessacao = Container::getModel("Cessacao");
-        $this->view->cessacao = $cessacao->findById('cessacao', $id);
-
-        //Chamando os registros de Reativação
-        $reativacao = Container::getModel("Reativacao");
-        $this->view->reativacao = $reativacao->findById('reativacao', $id);
-
-        //Chamando os registros de Suspensão
-        $suspensao = Container::getModel("Suspensao");
-        $this->view->suspensao = $suspensao->findById('suspensao', $id);
+        $findId = Container::getModel('CrudDbFindId');
+        $this->view->dados = $findId->findById($tableName, $id);
 
 
         $this->render('editar', 'layoutPadrao');
     }
 
-    public function procEnvio () {
-
-        $procEnvio = Container::getModel('CrudDbProcEnvio');
-
-        $id = filter_input(INPUT_POST, 'id');
-        $tableName = filter_input(INPUT_POST, 'tableName');
+    public function update () {
         
-        if ($tableName == 'reativacao') {
+        $id = filter_input(INPUT_POST, 'id');
+        $tableName = filter_input(INPUT_POST, 'tableName');        
+        
+        $procEnvio = Container::getModel('CrudDbUpdate');
 
-            $procEnvio->__set('tableName', $_POST['tableName']);
-            $procEnvio->__set('codigo', $_POST['codigo']);
-            $procEnvio->__set('nome', $_POST['nome']);
+        $status = $procEnvio->update($tableName, $id); 
+        
+        if ($status) {
+
+            header('Location: /editar?id='.$id.'&nome='.$tableName.'&status=alterado');
 
         } else {
-
-            $procEnvio->__set('tableName', $_POST['tableName']);
-            $procEnvio->__set('codigo', $_POST['codigo']);
-            $procEnvio->__set('nome', $_POST['nome']);
-            $procEnvio->__set('conc_final', $_POST['conc_final']);
-            $procEnvio->__set('prisma_sabi', $_POST['prisma_sabi']);
-            $procEnvio->__set('reatnb_plenus', $_POST['reatnb_plenus']);
-            $procEnvio->__set('situacao', $_POST['situacao']);   
-                 
+            
+            header('Location: /editar?id='.$id.'&nome='.$tableName.'&status=nao_alterado');
+        
         }
-
-        if ($_POST) {
-
-            $procEnvio->update($tableName, $id);        
-           
-        } else {
-            echo "Erro";
-        }
-
-
-        $this->render('procEnvio', 'layoutPadrao');
     }
 
     public function delete () {
@@ -111,7 +91,6 @@ class IndexController extends Action {
 
         $delete->delete($tableName, $tableId);
 
-        $this->render('excluir', 'layoutPadrao');
     }
 
     public function addReg() {
@@ -122,24 +101,15 @@ class IndexController extends Action {
     public function addRegDb() {
         
         $tableName = filter_input(INPUT_POST, 'tableName');
-
         
         $add = Container::getModel('CrudDbCriarReg');
-        $add->__set('codigo', $_POST['codigo']);
-        $add->__set('nome', $_POST['nome']);
 
-        if ($tableName != 'reativacao') {
-
-            $add->__set('codigo', $_POST['codigo']);
-            $add->__set('nome', $_POST['nome']);
-            $add->__set('conc_final', $_POST['conc_final']);
-            $add->__set('prisma_sabi', $_POST['prisma_sabi']);
-            $add->__set('reatnb_plenus', $_POST['reatnb_plenus']);
-            $add->__set('situacao', $_POST['situacao']);
-
-        } 
-
-        $add->addReg($tableName);    
+        $resultado = $add->addRegDb($tableName);  
+        if ($resultado) { 
+            header('location: /admin?status=adicionado&tb='.$tableName);
+        } else {
+            header('location: /addReg?Erro_Envio');
+        }
     }
 }
 

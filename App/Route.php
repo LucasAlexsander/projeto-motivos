@@ -6,10 +6,16 @@ use MF\Init\Bootstrap;
 class Route extends Bootstrap {   
 
     protected function initRoutes() {
-        $routes['home'] = array ( //Nome do Array
+        $routes['login'] = array ( //Nome do Array
             'route' => '/', //Rota
             'controller' => 'indexController', //Controller usado para a rota
-            'action' => 'index' //Ação
+            'action' => 'login' //Ação
+        );
+
+        $routes['home'] = array ( //Nome do Array
+            'route' => '/home', //Rota
+            'controller' => 'indexController', //Controller usado para a rota
+            'action' => 'home' //Ação
         );
 
         $routes['admin'] = array (
@@ -25,21 +31,15 @@ class Route extends Bootstrap {
             'action' => 'editar'
         );
 
-        $routes['criarMot'] = array (
-            'route' => '/criarMot',
-            'controller' => 'CrudController',
-            'action' => 'criarMot'
-        );
-
         $routes['envioUpdate'] = array (
             'route' => '/procEnvio',
-            'controller' => 'CrudController',
-            'action' => 'procEnvio'
+            'controller' => 'IndexController',
+            'action' => 'update'
         );
 
         $routes['delete'] = array (
             'route' => '/excluir',
-            'controller' => 'CrudController',
+            'controller' => 'IndexController',
             'action' => 'delete'
         );
 
@@ -51,10 +51,17 @@ class Route extends Bootstrap {
 
         $routes['addRegDb'] = array (
             'route' => '/addReg/Db',
-            'controller' => 'CrudController',
+            'controller' => 'IndexController',
             'action' => 'addRegDb'
         );
         
+        $routes['Login'] = array (
+            'route' => '/login',
+            'controller' => 'IndexController',
+            'action' => 'login'
+        );
+        
+
         
         $this->setRoutes($routes);
     }

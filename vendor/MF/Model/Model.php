@@ -26,20 +26,5 @@ abstract class Model {
     public function __construct(\PDO $db) {
         $this->db = $db;
     }
-
-
-    /* Chamar todos os registros */
-    public function findAll($tbName) {
-        $sql = "SELECT * FROM {$tbName}";
-        return $this->db->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
-    }
-
-    /* Chamar os registros com base no ID */
-    public function findById($tbName, $id) {
-        $sql = "SELECT * FROM {$tbName} WHERE id_{$tbName} = {$id}";
-        return $this->db->query($sql)->fetchAll();
-        
-    }
 }
-
 ?>

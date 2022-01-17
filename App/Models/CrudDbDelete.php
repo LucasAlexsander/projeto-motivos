@@ -9,9 +9,16 @@ class CrudDbDelete extends Model {
     public function delete($tableName, $id) {    
 
         $query = "delete from {$tableName} where id_{$tableName} = {$id}";
-        $this->db->query($query)->execute();
+        $resultado = $this->db->query($query)->execute();
 
-        header('Location: /admin?Excluido');
+        if ($resultado) {
+            echo 'Excluido';
+        } else {
+            echo 'False';
+        }
+
+
+        header('Location: /admin?tb='.$tableName.'&status=excluido');
         exit;        
     }
 

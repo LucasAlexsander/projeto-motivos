@@ -239,6 +239,45 @@ color: #fff !important;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  overflow-x: hidden;
+}
+#adminPage header {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+#adminPage header a {
+  color: darkblue;
+}
+#adminPage header span {
+  color: #0f943b;
+}
+
+#adminPage header nav #button-index-page {
+  position: absolute;
+  top: 6%;
+  right: 8%;
+  border-radius: .25rem;
+  padding: 0.5rem 1.25rem;  
+  background-color: #007bff;   
+  border: 1px solid #007bff;
+  color: #FFF;
+}
+
+#adminPage header nav #button-index-page:hover {
+  background-color: #fff;
+  color: #007bff;  
+  border: 1px solid #007bff;
+}
+
+
+
+#adminPage header .line {
+  margin: 18px auto;
+  width: 70%;
+  height: 1px;
+  background-color: black;
+  opacity: 0.2;
 }
 
 #adminPage table {
@@ -274,10 +313,15 @@ color: #fff !important;
   margin: 35px 0px 20px 0px;
 }
 
-#editPage .container .text-area h1 {
+#editPage .container .text-area h1, 
+#editPage .container .text-area h4 {
   text-align: center;
-
 }
+#editPage .container .text-area span {
+  color: #03ff4a;
+  font-family: 'Times New Roman', Times, serif;
+}
+
 #editPage .container form {
   max-width: 1000px;
   height: auto;
@@ -330,7 +374,7 @@ color: #fff !important;
   border: 1px solid rgba(0, 0, 0, 0);
   color: black;
   cursor: pointer;  
-  padding: .4rem .7rem;  
+  padding: .4rem .2rem;  
   text-decoration: none;
   background: whitesmoke;
 }

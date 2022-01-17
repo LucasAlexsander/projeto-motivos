@@ -6,55 +6,37 @@
 
     $tbNome = filter_input(INPUT_GET, 'nome');
     $tbId = filter_input(INPUT_GET, 'id');
-
-    /* if ($tbNome === 'cessacao' ) {
-        foreach ($this->view->cessacao as $item);
-    } elseif ($tbNome === 'reativacao') {
-        foreach ($this->view->reativacao as $item);
-    } elseif ($tbNome === "suspensao") {
-        foreach ($this->view->suspensao as $item);
-    } */
-    
+    $status = filter_input(INPUT_GET, 'status');
 
 
-    if (($tbNome === 'cessacao' ) && !(empty($this->view->cessacao))) {
+
+    if ($tbNome === 'cessacao' ) {
 
         $NomeTabela = 'Cessação';
-        foreach ($this->view->cessacao as $item);
 
-    } elseif (($tbNome === 'reativacao') && !(empty($this->view->reativacao))) {
+    } elseif ($tbNome === 'reativacao') {
 
         $NomeTabela = 'Reativação';
-        foreach ($this->view->reativacao as $item);
 
-    } elseif (($tbNome === "suspensao") && !(empty($this->view->suspensao))) {
+    } elseif ($tbNome === "suspensao") {
 
-        $NomeTabela = 'Suspesão';
-        foreach ($this->view->suspensao as $item);
-        
+        $NomeTabela = 'Suspesão';        
     }
 
-    
-    
-    if ($tbNome === "suspensao" && isset($tbNome)) {
-        for ($i=0; $i <= 6; $i++) {
-            if ($item[$i] == null) {
-                $item[$i] = "null";
-            }
-        }
-    }
-
-    /* echo '<pre>';
-    print_r($item);
-    echo '</pre>';  */
+    foreach ($this->view->dados as $item){};
 
 ?>
-
-
 <div class="container">
     
     <div class="text-area">
         <h1>Editando <?=$NomeTabela?></h1>
+        
+        <?php if ($status === 'alterado') { ?>
+
+            <h4>Status: <span>Alterado</span></h4>
+
+        <?php } ?>
+
     </div>
     
 <form method="POST" action="/procEnvio">

@@ -1,3 +1,4 @@
+<?php require '../App/Views/Partials/TratandoTbName.php';?>
 <head>
     
     <title>Admin Page</title>
@@ -6,18 +7,28 @@
 <body id='adminPage'> 
 
     <header>
-        <h1>Lista de Teste</h1>
-        <h2>Subtitulo</h2>
+        <h1>Banco de Dados</h1>
+        <h2>Motivos</h2>
+
+        <?php if (!empty($status)) {?>
+
+            <h6>Status: <span><?=$status?></span></h6>
+            <h6>Tabela: <a href="#<?=$tbName?>"><u><?=$tableName?></u></a></h6>
+
+        <?php }?>
+
+        <nav id="navegar">
+        <div class="nav justify-content-end" id="nav-tab" role="tablist">
+        <a class="nav-item nav-link" id="button-index-page" href="/home" aria-controls="nav-Motsus">Voltar</a>
+    </nav>
+        
+        <div class="line"></div>
     </header>
 
-    <!-- <?php
-        echo '<pre>';
-        print_r($this->view->dados);
-        echo '</pre>';
-    ?> -->
-
-    <!-- Tabela de Cessação -->
-    <h2>Tabela de Cessação</h2>
+    
+    
+<!-- Tabela de Cessação -->
+<h2 id='cessacao'>Tabela de Cessação</h2>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -64,7 +75,7 @@
     <br><hr><br>
 
     <!-- Tabela de Reativação -->
-    <h2>Tabela de Reativação</h2>
+    <h2 id='reativacao'>Tabela de Reativação</h2>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -93,7 +104,7 @@
                                     <td><?=$reativacao['codigo']?></td>
                                     <td><?=$reativacao['nome']?></td>
                                     <td>
-                                        <a href="/excluir?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao" onclick="return confirm('Deseja excluir?')">[ excluir ]</a><br>
+                                        <a href="/excluir?id=<?=$reativacao['id_reativacao']?>&nome=reativacao" onclick="return confirm('Deseja excluir?')">[ excluir ]</a><br>
                                         <a href="/editar?id=<?=$reativacao['id_reativacao']?>&nome=reativacao">[ Editar ]</a>
                                     </td>
                                 </tr>
@@ -109,8 +120,8 @@
     <br><hr><br>
 
     <!-- Tabela de Suspensão -->
-    <h2>Tabela de Suspensão</h2>
-    <div class="container">
+    <h2 id='suspensao'>Tabela de Suspensão</h2>
+    <div class="container" style="margin-bottom: 50px;">
         <div class="row">
             <div class="col-lg-12">
                 <div class="table-responsive">
@@ -140,7 +151,7 @@
                                     <td><?=$suspensao['nome']?></td>
                                     <td><?=$suspensao['situacao']?></td>
                                     <td>
-                                        <a href="/excluir?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao" onclick="return confirm('Deseja excluir?')">[ excluir ]</a><br>
+                                        <a href="/excluir?id=<?=$suspensao['id_suspensao']?>&nome=suspensao" onclick="return confirm('Deseja excluir?')">[ excluir ]</a><br>
                                         <a href="/editar?id=<?=$suspensao['id_suspensao']?>&nome=suspensao">[ Editar ]</a>
                                     </td>
                                 </tr>
@@ -152,9 +163,5 @@
             </div>
         </div>
     </div>
-
-    
-
-    
 
     
