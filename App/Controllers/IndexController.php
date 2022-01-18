@@ -32,6 +32,13 @@ class IndexController extends Action {
       //$this->render('page', 'layout');  Estrutura Padrão
         $this->render('home', 'layoutPadrao'); //Recebe como parametro a página que vc quer ir e o seu layout (opcional), respectivamente;
     }
+
+    public function logout() {
+
+        session_start();
+        session_destroy();
+        header('location: /');
+    }
     
     public function admin() {     
 

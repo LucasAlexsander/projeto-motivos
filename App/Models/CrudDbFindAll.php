@@ -10,6 +10,5 @@ class CrudDbFindAll extends Model {
         $sql = "SELECT * FROM {$tbName}";
         return $this->db->query($sql)->fetchAll(\PDO::FETCH_ASSOC);
     }
-
 }
 ?>

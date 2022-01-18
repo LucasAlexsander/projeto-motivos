@@ -17,6 +17,13 @@ class Route extends Bootstrap {
             'controller' => 'indexController', //Controller usado para a rota
             'action' => 'home' //Ação
         );
+        
+        $routes['logout'] = array ( //Nome do Array
+            'route' => '/logout', //Rota
+            'controller' => 'indexController', //Controller usado para a rota
+            'action' => 'logout' //Ação
+        );
+
 
         $routes['admin'] = array (
             'route' => '/admin', 
@@ -59,6 +66,12 @@ class Route extends Bootstrap {
             'route' => '/login',
             'controller' => 'IndexController',
             'action' => 'login'
+        );
+        
+        $routes['loginConfirm'] = array (
+            'route' => '/loginConfirm',
+            'controller' => 'UserController',
+            'action' => 'loginConfirm'
         );
         
 

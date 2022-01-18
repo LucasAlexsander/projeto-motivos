@@ -35,7 +35,7 @@ class CrudDbUpdate extends Model {
             $query = "update {$tableName} set codigo = '{$codigo}', nome = '{$nome}' where id_reativacao = {$id}";
             $sql = $this->db->query($query)->execute();
 
-        }  else {
+        } else {
 
             $query = "update {$tableName} set codigo = '{$codigo}', nome = '{$nome}', conc_final = '{$conc_final}', prisma_sabi = '{$prisma_sabi}', reatnb_plenus = '{$reatnb_plenus}', situacao = '{$situacao}' where id_{$tableName} = {$id}";
             $sql = $this->db->query($query)->execute();

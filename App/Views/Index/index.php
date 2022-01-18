@@ -6,20 +6,25 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-50 p-b-90">
-				<form action="/home" method="POST" class="login100-form validate-form flex-sb flex-w">
+				<form action="/loginConfirm" method="POST" class="login100-form validate-form flex-sb flex-w">
 					<span class="login100-form-title p-b-51">
 						Login - Motivos
 					</span>
 
+					<?php if (!empty($_GET['erro']) && $_GET['erro'] === 'userInvalido') {?> 						
+						<p style="color: #f00;">Usuário Invalido</p>
+					<?php } elseif (!empty($_GET['erro']) && $_GET['erro'] === 'loginNecessario') {?>
+						<p style="color: #f00;">É necessário efetuar o login para acessar as páginas</p>
+					<?php } ?>
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" placeholder="SIAPE">
+						<input class="input100" type="text" name="SIAPE" placeholder="SIAPE">
 						<span class="focus-input100"></span>
 					</div>
 					
 					
 					<div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Senha">
+						<input class="input100" type="password" name="senha" placeholder="Senha">
 						<span class="focus-input100"></span>
 					</div>
 					
