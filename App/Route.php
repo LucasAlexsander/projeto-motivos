@@ -11,7 +11,7 @@ class Route extends Bootstrap {
             'controller' => 'indexController', //Controller usado para a rota
             'action' => 'login' //Ação
         );
-
+                
         $routes['home'] = array ( //Nome do Array
             'route' => '/home', //Rota
             'controller' => 'indexController', //Controller usado para a rota
@@ -23,7 +23,14 @@ class Route extends Bootstrap {
             'controller' => 'indexController', //Controller usado para a rota
             'action' => 'logout' //Ação
         );
+        
+        $routes['addReg'] = array (
+            'route' => '/addReg',
+            'controller' => 'IndexController',
+            'action' => 'addReg'
+        );
 
+        //CRUD CONTROLLER
 
         $routes['admin'] = array (
             'route' => '/admin', 
@@ -50,23 +57,14 @@ class Route extends Bootstrap {
             'action' => 'delete'
         );
 
-        $routes['addReg'] = array (
-            'route' => '/addReg',
-            'controller' => 'IndexController',
-            'action' => 'addReg'
-        );
 
-        $routes['addRegDb'] = array (
-            'route' => '/addReg/Db',
+        $routes['registrar'] = array (
+            'route' => '/registrar',
             'controller' => 'IndexController',
-            'action' => 'addRegDb'
+            'action' => 'registrar'
         );
         
-        $routes['Login'] = array (
-            'route' => '/login',
-            'controller' => 'IndexController',
-            'action' => 'login'
-        );
+        //USER CONTROLLER
         
         $routes['loginConfirm'] = array (
             'route' => '/loginConfirm',

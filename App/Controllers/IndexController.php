@@ -40,8 +40,15 @@ class IndexController extends Action {
         header('location: /');
     }
     
-    public function admin() {     
+    public function addReg() {
 
+        $this->render('addReg', 'layoutPadrao');
+    }
+
+
+    /* CRUD */
+
+    public function admin() {   
 
         $findAll = Container::getModel('CrudDbFindAll');
 
@@ -64,7 +71,6 @@ class IndexController extends Action {
 
         $findId = Container::getModel('CrudDbFindId');
         $this->view->dados = $findId->findById($tableName, $id);
-
 
         $this->render('editar', 'layoutPadrao');
     }
@@ -100,17 +106,12 @@ class IndexController extends Action {
 
     }
 
-    public function addReg() {
-
-        $this->render('addReg', 'layoutPadrao');
-    }
-
-    public function addRegDb() {
+    public function registrar() {
         
         $tableName = filter_input(INPUT_POST, 'tableName');
         
         $add = Container::getModel('CrudDbCriarReg');
-
+        
         $resultado = $add->addRegDb($tableName);  
         if ($resultado) { 
             header('location: /admin?status=adicionado&tb='.$tableName);
@@ -118,7 +119,7 @@ class IndexController extends Action {
             header('location: /addReg?Erro_Envio');
         }
     }
+
+
 }
-
-
 ?>

@@ -16,30 +16,20 @@
   padding: 15px;
 }
 
-.s006 #button-admin-page { /* Altera com base no User */
+.s006 #button-admin-page,
+.s006 #button-logout-page { /* Altera com base no User */
   display: none;
   display: block;
   position: absolute;
   top: 5%;
+  right: 6%;
+  border-radius: .25rem;
+  padding: 0.5rem 1.25rem;
+}
+.s006 #button-admin-page {
   right: 13%;
-  border-radius: .25rem;
-  padding: 0.5rem 1.25rem;
 }
-.s006 #button-admin-page:hover {
- background-color: #007bff;
-  color: #fff;  
-}
-
-/* Botão de logout para usuários */
-.s006 #button-logout-page {
-  display: none;
-  display: block;
-  position: absolute;
-  top: 5%;
-  right: 7%;
-  border-radius: .25rem;
-  padding: 0.5rem 1.25rem;
-}
+.s006 #button-admin-page:hover,
 .s006 #button-logout-page:hover {
  background-color: #007bff;
   color: #fff;  
@@ -268,7 +258,8 @@ color: #fff !important;
   color: #0f943b;
 }
 
-#adminPage header nav #button-index-page {
+#adminPage header nav #button-index-page,
+#adminPage header nav #button-logout-page {
   position: absolute;
   top: 6%;
   right: 8%;
@@ -278,14 +269,16 @@ color: #fff !important;
   border: 1px solid #007bff;
   color: #FFF;
 }
+#adminPage header nav #button-index-page {  
+  right: 14%;
+}
 
-#adminPage header nav #button-index-page:hover {
+#adminPage header nav #button-index-page:hover,
+#adminPage header nav #button-logout-page:hover {
   background-color: #fff;
   color: #007bff;  
   border: 1px solid #007bff;
 }
-
-
 
 #adminPage header .line {
   margin: 18px auto;

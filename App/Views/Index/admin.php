@@ -20,6 +20,7 @@
         <nav id="navegar">
         <div class="nav justify-content-end" id="nav-tab" role="tablist">
         <a class="nav-item nav-link" id="button-index-page" href="/home" aria-controls="nav-Motsus">Voltar</a>
+        <a class="nav-item nav-link" id="button-logout-page" href="/logout" aria-controls="nav-Motsus">Sair</a>
     </nav>
         
         <div class="line"></div>

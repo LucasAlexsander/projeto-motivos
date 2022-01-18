@@ -28,22 +28,36 @@ class CrudDbCriarReg extends Model {
             $situacao = $this->__get('situacao');
 
         } 
-        echo $tableName . '<hr>';
+            echo '<pre>';
+            print_r($this);
+            echo '</pre>';
+            echo $codigo;
 
         if ( $tableName === 'reativacao' ) {
             echo 'True';
 
-            $query = "insert into {$tableName} (codigo, nome) value ('{$codigo}', '{$nome}')";
-            $this->db->query($query)->execute();
+            $query = "INSERT INTO reativacao(codigo, nome) VALUE (:codigo, :nome)";
+            $sql = $this->db->prepare($query);
+            $sql->bindValue(':codigo', $codigo);
+            $sql->bindValue(':nome', $nome);
+            $sql->execute();       
             
+            return $this;
             
         } else {
             echo 'False';
-            $query = "insert into {$tableName} (codigo, nome, conc_final, prisma_sabi, reatnb_plenus, situacao) value ('{$codigo}', '{$nome}', '{$conc_final}', '{$prisma_sabi}', '{$reatnb_plenus}', '{$situacao}')";
-            $this->db->query($query)->execute();
+            $query = "insert into {$tableName}(codigo, nome, conc_final, prisma_sabi, reatnb_plenus, situacao) value (:codigo, :nome, :conc_final, :prisma_sabi, :reatnb_plenus, :situacao)";
+            $sql = $this->db->prepare($query);
+            $sql->bindValue(':codigo', $codigo);
+            $sql->bindValue(':nome', $nome);
+            $sql->bindValue(':conc_final', $conc_final);
+            $sql->bindValue(':prisma_sabi', $prisma_sabi);
+            $sql->bindValue(':reatnb_plenus', $reatnb_plenus);
+            $sql->bindValue(':situacao', $situacao);
+            $sql->execute();
 
         }       
-        return true;
+        return true; 
     }
 }
 ?>

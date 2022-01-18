@@ -29,7 +29,7 @@
         <h1> <?=$NomeTabela?> </h1>
     </div>
     
-<form method="POST" action="/addReg/Db">
+<form method="POST" action="/registrar">
 
     <input type="text" name="tableName" value="<?=$tbNome?>" hidden>
 

@@ -9,8 +9,6 @@ use MF\Model\Container;
 
 
 
-
-
 class UserController extends Action { 
 
     public function loginConfirm() {

@@ -6,12 +6,12 @@ class Connection {
 
     public static function getDb () {
         try {
-            $dbType = 'mysql';
-            $dbName = 'motivos';
-            $dbPath = 'localhost';
-            $dbCharset = 'utf8';
-            $dbUser = 'root';
-            $dbPass = '';
+            $dbType = 'mysql'; /* Tipo do banco de dados */
+            $dbName = 'motivos'; /* Nome do banco de dados */
+            $dbPath = 'localhost'; /* Local do banco de dados, pode ser em IP também */
+            $dbCharset = 'utf8'; /* Tipo do banco de dados */
+            $dbUser = 'root'; /* Usuario */
+            $dbPass = ''; /* Senha */
 
             $pdo = new \PDO( // \ para indicar que a class fica na pasta raiz do php
                 
