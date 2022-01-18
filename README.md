@@ -24,10 +24,11 @@ Lá que vamos fazer todas as configurações da página, isto é, definir qual  
 • <b>App/Route.php</b>: Pasta que tem como sua função definir o caminho das rotas, e escolher em qual Controller ela vai ser executada.
 
 <h2><b>Como usar:</b></h2>
-• <b>App/Controller/:</b> <br>
-1.	Devemos colocar o seu namespace logo de começo: <b>pp\Controllers;</b> <br>
-2.	Vamos pegar alguns recursos da pasta MF usando o use: <b>MF\Controller\Action;</b> e também o <b>MF\Model\Container;</b> <br>
-3.	Logo em seguida definimos a sua classe, ela deve ter o mesmo nome do arquivo.<br>
+
+• <b>App/Controller/:</b>
+1.	Devemos colocar o seu namespace logo de começo: <b>pp\Controllers;</b>
+2.	Vamos pegar alguns recursos da pasta MF usando o use: <b>MF\Controller\Action;</b> e também o <b>MF\Model\Container;</b>
+3.	Logo em seguida definimos a sua classe, ela deve ter o mesmo nome do arquivo.
 
 • <b>App/Models/:</b>
 1.	Devemos colocar o seu namespace no começo: <b>App\Models;</b>
