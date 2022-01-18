@@ -6,12 +6,12 @@ O MVC contém 3 pastas, sendo elas vendor, public, App. Na pasta vendor, vai con
 
 2. <b>vendor/MF/</b> : Contém as configurações do miniframework, onde vamos ter as pastas Controller, Init e Model;
 
-2.1. <b>vendo/MF/Controller/</b>: Lá irá ter um arquivo que tem como sua direcionar para as páginas e carregar os layouts (configuração do <b>$this->render()</b> );
+* <b>vendo/MF/Controller/</b>: Lá irá ter um arquivo que tem como sua direcionar para as páginas e carregar os layouts (configuração do <b>$this->render()</b> );
 
-2.2. <b>vendor/MF/Init/</b>: Lá vamos ter a configuração do bootstrap do framework, lá conseguimos pegar a URL da página que esta sendo acessada e criar uma rota para ela, assim, damos origem as route; 
+* <b>vendor/MF/Init/</b>: Lá vamos ter a configuração do bootstrap do framework, lá conseguimos pegar a URL da página que esta sendo acessada e criar uma rota para ela, assim, damos origem as route; 
 3. <b>vendo/MF/Model/</b> : Nesta pasta vamos ter dois arquivos, o Container e o Model, fundamentais para faz conexão com os modelos e definir alguns atributos ;
-3.1. <b>vendor/MF/Model/Container/</b>: Vamos ter a configuração para instânciarmos o modelo através de uma função.
-3.2. <b>vendor/MF/Model/Model/</b>: Temos uma classe abstrata dos modelos, onde podemos definir variáveis globais em todos os demais modelos, e temos uma função que concta com o banco de dados;
+* <b>vendor/MF/Model/Container/</b>: Vamos ter a configuração para instânciarmos o modelo através de uma função.
+* <b>vendor/MF/Model/Model/</b>: Temos uma classe abstrata dos modelos, onde podemos definir variáveis globais em todos os demais modelos, e temos uma função que concta com o banco de dados;
 4.  vendo/autoload.php: Arquivos usado para efetuar o autoload, sendo puxado as suas configurações do composer.
 
 <b>Partindo para a pasta public</b>
