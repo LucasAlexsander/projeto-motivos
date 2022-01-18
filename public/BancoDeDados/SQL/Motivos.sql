@@ -287,10 +287,36 @@ INSERT INTO `suspensao` (`id_suspensao`, `codigo`, `nome`, `conc_final`, `prisma
 (52, '86', 'Suspenso BPC por exercer atividade remunerada', '\nForma manual de suspensão/interrupção do benefício de prestação continuada (deficiência), aplicada ao beneficiário do BPC espécie 87, que entra no mercado de trabalho, o qual terá o pagamento do seu benefício suspenso, em caráter especial. Mas, se perder', '49', '', 'Restabelecido manualmente nos sistemas PRISMA/SABI/SIBE ou PLENUS/REATNB pelos motivos elencados na planilha.'),
 (53, '87', 'Suspenso por suspeita de óbito SIM', 'Forma manual de suspensão/interrupção de benefício/pagamento, face ao de batimento do SIM (Sistema Informação sobre Mortalidade - SUS) com o CMOBEN,a fim , de verificar se o beneficiário foi a óbito.', '04 e 28', '04 e 28', 'Restabelecido manualmente nos sistemas PRISMA/SABI/SIBE ou PLENUS/REATNB pelos motivos elencados na planilha.');
 
+-- --------------------------------------------------------
+
 --
+-- Estrutura para tabela `suspensao`
+--
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id_users` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `SIAPE` int(9) NOT NULL, 
+  `profile_type` int(1) NOT NULL DEFAULT (0)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+--
+-- Despejando dados para a tabela `suspensao`
+--
+INSERT INTO `users` (`nome`, `senha`, `email`, `SIAPE`, `profile_type`) VALUES ('Admin', 'admin123', 'admin@admin.com', 100322, 1), ('User', 'senha123' ,'user@user.com', 200931, 0), ('User Teste', '123senha', 'user@test.com', 302931, 0);
+
 -- Índices de tabelas apagadas
 --
 
+--
+-- Índices de tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id_users`);
+
+ALTER TABLE `users`
+  ADD UNIQUE(`SIAPE`, `email`);
 --
 -- Índices de tabela `cessacao`
 --
