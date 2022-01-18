@@ -1,27 +1,32 @@
 <h1>MVC:</h1>
-Ele contém 3 pastas, sendo elas vendor, public, App. Na pasta vendor, vai conter algumas configurações do MVC em geral, sendo elas:
-• <b>vendor/composer/</b> : Contém os arquivos para o autoload da página index;
-• <b>vendor/MF/</b> : Contém as configurações do miniframework, onde vamos ter as pastas Controller, Init e Model;
-	<b>vendo/MF/Controller/: Lá irá ter um arquivo que tem como sua direcionar para as páginas e carregar os layouts (configuração do <b>$this->render()</b> );
-	<b>vendor/MF/Init/</b>: Lá vamos ter a configuração do bootstrap do framework, lá conseguimos pegar a URL da página que esta sendo acessada e criar uma rota para ela, assim, damos origem as route; 
-	<b>vendo/MF/Model/</b> : Nesta pasta vamos ter dois arquivos, o Container e o Model, fundamentais para faz conexão com os modelos e definir alguns atributos ;
-		<b>vendor/MF/Model/Container/</b>: Vamos ter a configuração para instânciarmos o modelo através de uma função.
-		<b>vendor/MF/Model/Model/</b>: Temos uma classe abstrata dos modelos, onde podemos definir variáveis globais em todos os demais modelos, e temos uma função que concta com o banco de dados;
-• vendo/autoload.php: Arquivos usado para efetuar o autoload, sendo puxado as suas configurações do composer.
+
+O MVC contém 3 pastas, sendo elas vendor, public, App. Na pasta vendor, vai conter algumas configurações do MVC em geral, sendo elas:
+
+1. <b>vendor/composer/</b> : Contém os arquivos para o autoload da página index;
+
+2. <b>vendor/MF/</b> : Contém as configurações do miniframework, onde vamos ter as pastas Controller, Init e Model;
+
+2.a. <b>vendo/MF/Controller/</b>: Lá irá ter um arquivo que tem como sua direcionar para as páginas e carregar os layouts (configuração do <b>$this->render()</b> );
+
+2.b. <b>vendor/MF/Init/</b>: Lá vamos ter a configuração do bootstrap do framework, lá conseguimos pegar a URL da página que esta sendo acessada e criar uma rota para ela, assim, damos origem as route; 
+3. <b>vendo/MF/Model/</b> : Nesta pasta vamos ter dois arquivos, o Container e o Model, fundamentais para faz conexão com os modelos e definir alguns atributos ;
+3.a. <b>vendor/MF/Model/Container/</b>: Vamos ter a configuração para instânciarmos o modelo através de uma função.
+3.b. <b>vendor/MF/Model/Model/</b>: Temos uma classe abstrata dos modelos, onde podemos definir variáveis globais em todos os demais modelos, e temos uma função que concta com o banco de dados;
+4.  vendo/autoload.php: Arquivos usado para efetuar o autoload, sendo puxado as suas configurações do composer.
 
 <b>Partindo para a pasta public</b>
 Lá vai conter arquivos que precisam estar no servidor para funcionar, como por exemplo, imagens, css, bootstrap, dataTable, etc. Caso não tenha esses arquivos lá não conseguiremos puxar eles para o frontEnd.
 
 <b>Pasta App</b>
 Lá que vamos fazer todas as configurações da página, isto é, definir qual  banco de dados vamos usar, configurar as rotas das páginas, criar modelos, controllers e páginas de navegação.
-• <b>App/Controllers/</b>: Vamos definir nossos controllers nesta página, onde sempre devemos seguir a sintaxe:
+1. <b>App/Controllers/</b>: Vamos definir nossos controllers nesta página, onde sempre devemos seguir a sintaxe:
 	<b><nome do controller>Controller.php</b>
-• <b>App/Models/</b>: Nesta pasta vamos criar funções que serão usadas nas páginas, por exemplo o CRUD.
-• <b>App/Views/</b>: Pasta onde vai conter toda a páginação tanto uma página em sí, quanto um layout., o index, página de login, etc. Podendo ser nos seguintes tipo, <b>HTML, PHP, PHTML</b>.
-	<b>App/Views/Index/</b>: Vai contér as páginas do site, podendo ser a página completa ou 	então somente o seu body. Ela pode ser dos seguintes tipos, HTML, PHTML, PHP;
-	<b>pp/Views/Partials/: Contém o layout das páginas;</b>
-• <b>App/Conection.php</b>: Pasta onde configuramos a conexão com o banco de dados, colocando seu nome, path, user, senha, e  o tipo.
-• <b>App/Route.php</b>: Pasta que tem como sua função definir o caminho das rotas, e escolher em qual Controller ela vai ser executada.
+2. <b>App/Models/</b>: Nesta pasta vamos criar funções que serão usadas nas páginas, por exemplo o CRUD.
+3. <b>App/Views/</b>: Pasta onde vai conter toda a páginação tanto uma página em sí, quanto um layout., o index, página de login, etc. Podendo ser nos seguintes tipo, <b>HTML, PHP, PHTML</b>.
+3.a. <b>App/Views/Index/</b>: Vai contér as páginas do site, podendo ser a página completa ou 	então somente o seu body. Ela pode ser dos seguintes tipos, HTML, PHTML, PHP;
+3.b. <b>pp/Views/Partials/: Contém o layout das páginas;</b>
+4. <b>App/Conection.php</b>: Pasta onde configuramos a conexão com o banco de dados, colocando seu nome, path, user, senha, e  o tipo.
+5. <b>App/Route.php</b>: Pasta que tem como sua função definir o caminho das rotas, e escolher em qual Controller ela vai ser executada.
 
 <h2><b>Como usar:</b></h2>
 
