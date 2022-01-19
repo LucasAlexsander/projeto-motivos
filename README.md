@@ -1,4 +1,4 @@
-<h1 align='center'>MVC:</h1>
+<h1>MVC:</h1>
 
 O MVC contém 3 pastas, sendo elas vendor, public, App. Na pasta vendor, vai conter algumas configurações do MVC em geral, sendo elas:
 
