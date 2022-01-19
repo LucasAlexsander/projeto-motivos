@@ -9,7 +9,7 @@
 
     if ($tbNome === 'cessacao' ) {
 
-        $NomeTabela = "Cessacão";
+        $NomeTabela = "Cessação";
 
     } elseif ($tbNome === 'reativacao') {
 

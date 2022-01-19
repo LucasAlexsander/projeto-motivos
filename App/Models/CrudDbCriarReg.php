@@ -15,6 +15,7 @@ class CrudDbCriarReg extends Model {
         $codigo = $this->__get('codigo');
         $nome = $this->__get('nome');
 
+
         if ($tableName != 'reativacao') {
 
             $this->__set('conc_final', $_POST['conc_final']);
@@ -28,21 +29,16 @@ class CrudDbCriarReg extends Model {
             $situacao = $this->__get('situacao');
 
         } 
-            echo '<pre>';
-            print_r($this);
-            echo '</pre>';
-            echo $codigo;
 
         if ( $tableName === 'reativacao' ) {
-            echo 'True';
 
             $query = "INSERT INTO reativacao(codigo, nome) VALUE (:codigo, :nome)";
             $sql = $this->db->prepare($query);
             $sql->bindValue(':codigo', $codigo);
             $sql->bindValue(':nome', $nome);
-            $sql->execute();       
+            $sql->execute();  
             
-            return $this;
+            $lastId = $this->db->lastInsertId();
             
         } else {
             echo 'False';
@@ -56,7 +52,9 @@ class CrudDbCriarReg extends Model {
             $sql->bindValue(':situacao', $situacao);
             $sql->execute();
 
-        }       
+            $lastId = $this->db->lastInsertId();
+        }     
+        $this->__set('lastId', $lastId);
         return true; 
     }
 }

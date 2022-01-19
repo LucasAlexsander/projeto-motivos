@@ -61,7 +61,7 @@ class IndexController extends Action {
         $suspensao = $findAll->findAll('suspensao');
         $this->view->suspensao = $suspensao;
 
-        $this->render('admin', 'layoutPadrao'); 
+        $this->render('admin', 'dataTable'); 
     }
 
     public function editar() {
@@ -113,12 +113,15 @@ class IndexController extends Action {
         $add = Container::getModel('CrudDbCriarReg');
         
         $resultado = $add->addRegDb($tableName);  
+
+        $lastId = $add->__get('lastId');
+                
         if ($resultado) { 
-            header('location: /admin?status=adicionado&tb='.$tableName);
+            header('location: /admin?status=adicionado&tb='.$tableName.'&id='.$lastId);
         } else {
             header('location: /addReg?Erro_Envio');
         }
-    }
+   }
 
 
 }

@@ -13,6 +13,7 @@ abstract class Model {
     private string $nome = "";
     private int $id;
     private string $tableName;
+    private int $lastId;
     //Tabelas do motivos
     private string $codigo = "";
     private $conc_final = "";

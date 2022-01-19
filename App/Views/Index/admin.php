@@ -13,7 +13,7 @@
         <?php if (!empty($status)) {?>
 
             <h6>Status: <span><?=$status?></span></h6>
-            <h6>Tabela: <a href="#<?=$tbName?>"><u><?=$tableName?></u></a></h6>
+            <h6>Tabela: <a href="#<?=$tbName?>"><u><?=$tableName?></u></a> | Id: <u><?=$lastId?></u></h6>
 
         <?php }?>
 

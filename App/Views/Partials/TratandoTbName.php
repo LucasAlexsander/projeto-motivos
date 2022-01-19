@@ -5,6 +5,7 @@ require_once 'adminValidation.php';
 
 $status = ucfirst(filter_input(INPUT_GET, 'status')); 
 $tbName = filter_input(INPUT_GET, 'tb');
+$lastId = filter_input(INPUT_GET, 'id');
 
 if ($status === 'Excluido') {
     $status = 'Excluído';

@@ -9,8 +9,7 @@ require_once 'userValidation.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
-    <link href="assets/css/main.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="vendor/DataTables/datatables.css">
+    <link href="assets/css/main.css" type="text/css" rel="stylesheet" />
     
 
     <!--[if lt IE 9]>
@@ -24,29 +23,14 @@ require_once 'userValidation.php';
     <![endif]-->
 
     <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
 
     <!-- Custom fonts for this template-->
-    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="vendor/DataTables/DataTables-1.11.3/css/dataTables.bootstrap4.min.css">
-    
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">    
 
   </head>
 
-
     <?= $this->content(); ?>
-
-    <!-- DataTables Scripts -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor\DataTables\DataTables-1.11.3\js\jquery.dataTables.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- DataTable Script -->
-    <script type="text/javascript" charset="utf8" src="vendor/DataTables/datatables.min.js"></script>
-
-
-    <script src="js/main.js"></script>
-
 
 </body>
 </html>
