@@ -24,13 +24,10 @@ class Connection {
 
         } catch (\PDOException $e) {
             //..Tratar de alguma forma..//
-            echo "Erro não foi possível conectar ao banco de dados. <br>";
+            echo "Erro não foi possível conectar ao banco de dados., tente mais tarde.<br>";
             echo "<span>Mensagem Erro:</span> " . $e->getMessage() . ".<hr>";
+            echo "<a href='/home' style='font-size: 18px; color: darkblue'>Clique aqui</a> para voltar à página de login";
             exit;
-
-            echo '<pre>';
-            print_r($e);
-            echo '</pre>';
         }
     }
 }

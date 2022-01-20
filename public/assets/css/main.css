@@ -292,6 +292,20 @@ color: #fff !important;
   width: 100%;
 }
 
+#adminPage table tbody tr td .icons-area {
+  display: flex;
+  justify-content: space-around;
+}
+
+#adminPage table tbody tr td a img {
+  width: 23px;
+  height: auto;
+}
+
+#adminPage table tbody tr td a:hover img {
+  filter: opacity(0.6);
+}
+
 /* Editando a página Edition Page */
 #editPage {
   background: url("../images/Search_07.jpg");

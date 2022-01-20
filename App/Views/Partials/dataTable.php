@@ -9,7 +9,7 @@ require_once 'userValidation.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
-    <link href="assets/css/main.css" rel="stylesheet" />
+    <link href="assets/css/main.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="vendor/DataTables/datatables.css">
     
 
@@ -29,7 +29,6 @@ require_once 'userValidation.php';
 
     <!-- DataTable Script -->
     <script type="text/javascript" charset="utf8" src="vendor/DataTables/datatables.min.js"></script>
-
 
     <script src="js/main.js"></script>
 

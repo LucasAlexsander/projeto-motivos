@@ -13,7 +13,13 @@
         <?php if (!empty($status)) {?>
 
             <h6>Status: <span><?=$status?></span></h6>
-            <h6>Tabela: <a href="#<?=$tbName?>"><u><?=$tableName?></u></a> | Id: <u><?=$lastId?></u></h6>
+            <h6>Tabela: <a href="#<?=$tbName?>"><u><?=$tableName?></u></a>
+            
+            <?php if($status != 'Excluído') {?> 
+
+                | Id: <u><?=$lastId?></u></h6>
+
+            <?php }?>
 
         <?php }?>
 
@@ -60,8 +66,10 @@
                                     <td><?=$cessacao['nome']?></td>
                                     <td><?=$cessacao['situacao']?></td>
                                     <td>
-                                        <a href="/excluir?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao" onclick="return confirm('Deseja excluir?')">[ excluir ]</a><br>
-                                        <a href="/editar?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao">[ Editar ]</a>
+                                        <div class="icons-area">
+                                            <a href="/editar?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao"><img src="assets/images/icons/create-outline.svg"></img></a>
+                                            <a href="/excluir?id=<?= $cessacao['id_cessacao'] ?>&nome=cessacao" onclick="return confirm('Deseja excluir?')"><img src="assets/images/icons/trash-outline.svg"></img></a>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -105,8 +113,10 @@
                                     <td><?=$reativacao['codigo']?></td>
                                     <td><?=$reativacao['nome']?></td>
                                     <td>
-                                        <a href="/excluir?id=<?=$reativacao['id_reativacao']?>&nome=reativacao" onclick="return confirm('Deseja excluir?')">[ excluir ]</a><br>
-                                        <a href="/editar?id=<?=$reativacao['id_reativacao']?>&nome=reativacao">[ Editar ]</a>
+                                        <div class="icons-area">
+                                            <a href="/editar?id=<?=$reativacao['id_reativacao']?>&nome=reativacao"><img src="assets/images/icons/create-outline.svg"></img></a>
+                                            <a href="/excluir?id=<?=$reativacao['id_reativacao']?>&nome=reativacao" onclick="return confirm('Deseja excluir?')"><img src="assets/images/icons/trash-outline.svg"></img></a>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
@@ -152,8 +162,10 @@
                                     <td><?=$suspensao['nome']?></td>
                                     <td><?=$suspensao['situacao']?></td>
                                     <td>
-                                        <a href="/excluir?id=<?=$suspensao['id_suspensao']?>&nome=suspensao" onclick="return confirm('Deseja excluir?')">[ excluir ]</a><br>
-                                        <a href="/editar?id=<?=$suspensao['id_suspensao']?>&nome=suspensao">[ Editar ]</a>
+                                        <div class="icons-area">
+                                            <a href="/editar?id=<?=$suspensao['id_suspensao']?>&nome=suspensao"><img src="assets/images/icons/create-outline.svg"></img></a>
+                                            <a href="/excluir?id=<?=$suspensao['id_suspensao']?>&nome=suspensao" onclick="return confirm('Deseja excluir?')"><img src="assets/images/icons/trash-outline.svg"></img></a>
+                                        </div>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
