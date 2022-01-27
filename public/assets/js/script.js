@@ -12,7 +12,7 @@ function autocomplet() {
 	var tab = $('.tab-content .active').attr('id');
 	if(keyword != '') {
 		$.ajax({
-			url: '../BancoDeDados/fetch.php',
+			url: '../../BancoDeDados/fetch.php',
 			type: 'POST',
 			data: {keyword:keyword, tab:tab},
 			success:function(data){
@@ -40,7 +40,7 @@ function enviar() {
 	var tab = $('.tab-content .active').attr('id');
 	if(codigo != '') {
 		$.ajax({
-			url: '../BancoDeDados/search.php',
+			url: '../../BancoDeDados/search.php',
 			type: 'POST',
 			data: {codigo:codigo, tab:tab},
 			success:function(data){

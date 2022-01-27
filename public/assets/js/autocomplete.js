@@ -2,7 +2,7 @@ $(document).ready(function(){
     $('#search').typeahead({
         source: function(query, result) {
             $.ajax({
-                url: "../BancoDeDados/fetch.php",
+                url: "../../BancoDeDados/fetch.php",
                 method: "POST",
                 data: {query:query},
                 dataType: "json",

@@ -45,7 +45,7 @@
                             <a href="/addReg?tb=cessacao">[ Adicionar Registro ]</a>
                         </div>
                     </div>
-                    <table id="listar_dados" class="listar_dados table table-striped table-bordered" style="width: 100%;">  
+                    <table class="listar_dados table table-striped table-bordered" style="width: 100%;">  
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -94,7 +94,7 @@
                             <a href="/addReg?tb=reativacao">[ Adicionar Registro ]</a>
                         </div>
                         </div>
-                    <table id="listar_dados1" class="table table-striped table-bordered" style="width: 100%;">  
+                    <table class="listar_dados table table-striped table-bordered" style="width: 100%;">  
                         <thead>
                             <tr>
                                 <th>Id</th>
@@ -141,7 +141,7 @@
                             <a href="/addReg?tb=suspensao">[ Adicionar Registro ]</a>
                         </div>
                     </div>
-                    <table id="listar_dados2" class="table table-striped table-bordered" style="width: 100%;">  
+                    <table class="listar_dados table table-striped table-bordered" style="width: 100%;">  
                         <thead>
                             <tr>
                                 <th>Id</th>
