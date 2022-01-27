@@ -172,7 +172,6 @@ color: #fff !important;
   }
 }
 
-
 /* Página de erro / Página não encontrada */
 
 /* Body */
@@ -207,7 +206,6 @@ color: #fff !important;
   width: 30em;
   height: auto;
 }
-
 #errorPage .container .errorText h1 {
   color: #5762B7;
 }
@@ -215,26 +213,21 @@ color: #fff !important;
   color: #929CE8;
   font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
 }
-
 #errorPage .container .errorText .btn {
   display: inline-block;
   border: 2px solid #5762B7;
   padding: 6px 10px;
   border-radius: 30px;
 }
-
-
 #errorPage .container .errorText .btn a {
   text-decoration: none;
   color: #5762B7;
 }
-
 #errorPage .container .errorText .btn:hover, 
 #errorPage .container .errorText .btn:hover a {
   background-color: #929CE8;
   color: whitesmoke;
 }
-
 /* Página do Amin */
 #adminPage {
   background: whitesmoke;
@@ -257,7 +250,6 @@ color: #fff !important;
 #adminPage header span {
   color: #0f943b;
 }
-
 #adminPage header nav #button-index-page,
 #adminPage header nav #button-logout-page {
   position: absolute;
@@ -272,14 +264,38 @@ color: #fff !important;
 #adminPage header nav #button-index-page {  
   right: 14%;
 }
-
 #adminPage header nav #button-index-page:hover,
 #adminPage header nav #button-logout-page:hover {
   background-color: #fff;
   color: #007bff;  
   border: 1px solid #007bff;
 }
-
+#adminPage .nav-table-motivos {
+  width: 70%;
+  margin: 0px auto -18px auto;
+  max-width: inherit;
+  height: 40px;
+}
+#adminPage .nav-table-motivos .table-motivos {
+  width: 270px;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#adminPage .nav-table-motivos .table-motivos a {
+  color: white;
+  background-color: #007bff;
+  padding: 8px 4px;
+  border-radius: 0.25rem 0.25rem 0rem 0rem;
+  text-decoration: none;
+  border: 1px solid #007bff;
+  border-bottom: none;
+}
+#adminPage .nav-table-motivos .table-motivos a:hover {
+  background-color: whitesmoke;
+  color: #007bff;  
+}
 #adminPage header .line {
   margin: 18px auto;
   width: 70%;

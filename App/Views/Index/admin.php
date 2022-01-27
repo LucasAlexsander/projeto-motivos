@@ -26,9 +26,15 @@
         <nav id="navegar">
         <div class="nav justify-content-end" id="nav-tab" role="tablist">
         <a class="nav-item nav-link" id="button-index-page" href="/home" aria-controls="nav-Motsus">Voltar</a>
-        <a class="nav-item nav-link" id="button-logout-page" href="/logout" aria-controls="nav-Motsus">Sair</a>
-    </nav>
-        
+        <a onclick="return confirm('Deseja sair?')" class="nav-item nav-link" id="button-logout-page" href="/logout" aria-controls="nav-Motsus">Sair</a>
+        </nav>
+        <div class="nav-table-motivos">
+            <div class="table-motivos">
+                <a href="#cessacao">Cessação</a>
+                <a href="#reativacao">Reativação</a>
+                <a href="#suspensao">Suspensão</a>
+            </div>
+        </div>
         <div class="line"></div>
     </header>
 

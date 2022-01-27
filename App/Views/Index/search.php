@@ -46,9 +46,8 @@
                                 <?php if($linha['prisma_sabi'] != null){ echo "active show"; } ?>
                                 " id="nav-PRISMA" role="tabpanel" aria-labelledby="nav-home-tab">
                                 <br>
-                                <textarea class="form-control reativa-text" id="inputPrisma" rows="5" name="prisma" disabled>
-
-                                    <?php $string  = str_replace("e", ",", $linha['prisma_sabi']);
+                                <textarea class="form-control reativa-text" id="inputPrisma" rows="5" name="prisma" disabled><?php
+                                    $string  = str_replace("e", ",", $linha['prisma_sabi']);
                                     $motivos = explode(",", $string);
                                     
                                     foreach ($motivos as $value) {
@@ -63,37 +62,45 @@
                                         
                                         $linha1 = $sql1->fetch(PDO::FETCH_ASSOC);
 
-                                        @$return = $linha1['codigo'] . ' - ' . $linha1['nome'] . "\n";
-                                        
-                                        echo $return;
-                                    } ?>                                
-                                </textarea>
+                                        $codigo = $linha1['codigo'] ?? '';
+                                        $nome = $linha1['nome'] ?? '';
+                                                                                
+                                        if ($nome && $codigo) {
+                                            echo $codigo . ' - ' . $nome . "\n";
+                                        }
+                                    }?></textarea>
                             </div>                            
                             <div class="tab-pane fade 
                                 <?php if($linha['reatnb_plenus'] != null){if($linha['prisma_sabi'] == null) { echo "active "; }  echo "show";} else { echo "disabled";} ?>
                                 " id="nav-REATNB" role="tabpanel" aria-labelledby="nav-profile-tab">
                                 <br>
-                                <textarea class="form-control reativa-text" id="inputReatnb" rows="5" name="reatnb" disabled>
+                                <textarea class="form-control reativa-text" id="inputReatnb" rows="5" name="reatnb" disabled><?php
+                                    $string  = str_replace("e", ",", $linha['reatnb_plenus']);
 
-                                    <?php $string  = str_replace("e", ",", $linha['reatnb_plenus']);
                                     $motivos = explode(",", $string);
-                                    
+
                                     foreach ($motivos as $value) {
+
                                         $value = trim($value);
+
                                         $query1 = "SELECT * FROM reativacao WHERE codigo = (:codigo) LIMIT 1;";
-                                    
+
                                         $sql1 = $link->prepare($query1);
 
                                         $sql1->bindValue(':codigo', $value, PDO::PARAM_STR);
+
                                         $sql1->execute();
-                                        
+
                                         $linha1 = $sql1->fetch(PDO::FETCH_ASSOC);
 
-                                        @$return = $linha1['codigo'] . ' - ' . $linha1['nome'] . "\n";
-                                        
-                                        echo $return;
-                                    }?>                                
-                                </textarea>
+                                        $codigo = $linha1['codigo'] ?? '';
+                                        $nome = $linha1['nome'] ?? '';
+                                                                                
+                                        if ($nome && $codigo) {
+                                            echo $codigo . ' - ' . $nome . "\n";
+                                        }
+
+                                    }?></textarea>
                             </div>
                         </div>
                     </div>

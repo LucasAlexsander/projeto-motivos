@@ -10,7 +10,7 @@ require_once 'userValidation.php';
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
     <link href="assets/css/main.css" type="text/css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="vendor/DataTables/datatables.css">
+    <link rel="stylesheet" type="text/css" href="vendor/DataTables/datatables.min.css">
     
 
     <!-- Bootstrap core CSS for DataTable-->

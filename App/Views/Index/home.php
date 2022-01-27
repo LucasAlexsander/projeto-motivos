@@ -12,7 +12,7 @@
             <nav id="navegar">
               <!-- Altera para display None dependendo do user -->
               <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link" id="button-logout-page" href="/logout" aria-controls="nav-Motsus">Sair</a>
+                <a onclick="return confirm('Deseja sair?')" class="nav-item nav-link" id="button-logout-page" href="/logout" aria-controls="nav-Motsus">Sair</a>
 
                 <?php if($_SESSION['profile_type'] === '1') {?>
                   <a class="nav-item nav-link" id="button-admin-page" href="/admin" aria-controls="nav-Motsus">Admin</a>
@@ -33,7 +33,7 @@
                     <div class="tab-pane fade show active" id="nav-Motces" role="tabpanel" aria-labelledby="nav-Motces-tab">
                     </div>
                     <div class="tab-pane fade" id="nav-Motsus" role="tabpanel" aria-labelledby="nav-Motsus-tab">
-                    </div>
+                    </div>  
                   </div>                    
                 </div>
                 <div class="list-group">
