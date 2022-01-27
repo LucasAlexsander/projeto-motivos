@@ -20,21 +20,15 @@ class userValidation extends Model {
                 
                 //Validando Usuário
                 if ($item['SIAPE'] === $SIAPE && $item['senha'] === $senha) {
-
-                    echo 'Concetado';
                     session_start();
                     $_SESSION['conectado'] = 1;
                     $_SESSION['profile_type'] = $item['profile_type'];
                     header('Location: /home');
 
-                } else {
-                    echo 'Desconectado';
-                    header('Location: /?erro=userInvalido');
                 }
             }
 
         } else {
-            echo 'Desconectado';
             header('Location: /?erro=userInvalido');
         }     
     }
