@@ -1,0 +1,459 @@
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap');
+
+.s006 {
+  min-height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-align: center;
+      align-items: center;
+  font-family: 'Nunito', 'Poppins', sans-serif;
+  background: url("../images/Search_07.jpg");
+  background-size: cover;
+  background-position: center center;
+  padding: 15px;
+}
+
+.s006 #button-admin-page,
+.s006 #button-logout-page { /* Altera com base no User */
+  display: none;
+  display: block;
+  position: absolute;
+  top: 5%;
+  right: 6%;
+  border-radius: .25rem;
+  padding: 0.5rem 1.25rem;
+}
+.s006 #button-admin-page {
+  right: 13%;
+}
+.s006 #button-admin-page:hover,
+.s006 #button-logout-page:hover {
+ background-color: #007bff;
+  color: #fff;  
+}
+
+.s006 form {
+  width: 100%;
+  max-width: 790px;
+}
+
+.s006 form legend {
+  font-size: 36px;
+  color: #fff;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 59px;
+}
+
+.s006 form .inner-form {
+  width: 100%;
+  margin-bottom: 17px;
+}
+
+.s006 form .inner-form .input-field {
+  height: 70px;
+  width: 100%;
+  position: relative;
+}
+
+.s006 form .inner-form .input-field input {
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: 0;
+  background: #fff;
+  display: block;
+  width: 100%;
+  padding: 10px 32px 10px 70px;
+  font-size: 18px;
+  color: #666;
+  border-radius: 34px;
+}
+
+.s006 form .suggestion-wrap {
+  padding: 0 15px;
+}
+
+.s006 form .suggestion-wrap span {
+  font-size: 14px;
+  font-family: 'Helvetica', sans-serif;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 0 15px;
+  line-height: 32px;
+  color: #fff;
+  border-radius: 16px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.reativa-text{
+background-color: rgba(0, 0, 0, 0.6) !important;
+opacity: 1;
+color: #fff !important; 
+}
+
+/*  Nav Pills */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link {
+  color: #495057;
+  background-color: #fff;
+  margin-right: 2px;
+  border-color: #dee2e6 #dee2e6 #fff;
+}
+
+/*  Nav Pills */
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: #fff !important;
+  background-color: #007bff !important;
+  border-color: #dee2e6 #dee2e6 #fff !important;
+}
+/* Fim - Nav Pills */
+
+/* Button1 */
+  .button1 {
+    padding: 6px 15px 6px 15px !important;
+  }
+/* Fim - Button1 */
+
+/* Button2 */
+.button2 {
+  padding: 10px 25px 10px 25px !important;
+}
+/* Fim - Button1 */
+
+/* Result */
+.result {
+  margin-top: 50px !important;
+}
+/* Fim - result */
+
+/* Botão Scroll */
+.scroll_btn {
+  border:0;
+  background-color: #007bff;
+  border-radius: 25px;
+  color:#fff;
+  padding:1rem;
+  font-size: 1rem;
+  position: fixed;
+  bottom:1rem;
+  right: 1rem;
+   }
+/* Fim - Botão Scroll */
+
+/* Botão fechar */
+.fechar_btn {
+  border:0;
+  background-color: transparent;
+  border-radius: 15px;
+  color:black;
+  padding:1rem;
+  font-size: 1.5rem;
+  position: absolute;
+  right: 1rem;
+}
+/* Fim - Botão fechar */
+
+@media screen and (max-width: 767px) {
+  .s006 form .inner-form .input-field {
+    margin-bottom: 20px;
+    height: 50px;
+  }
+  .s006 form .inner-form .input-field input {
+    padding-left: 55px;
+    font-size: 16px;
+  }
+  .s006 form .inner-form .input-field .btn-search svg {
+    width: 26px;
+    height: 26px;
+  }
+}
+
+/* Página de erro / Página não encontrada */
+
+/* Body */
+#errorPage {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  background: whitesmoke;
+}
+
+#errorPage .container {
+  width: 1440px;
+  height: auto;
+  flex-direction: column;
+}
+#errorPage, #errorPage .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#errorPage .container .imgError,
+#errorPage .container .errorText {
+  width: 800px;
+  height: auto;
+  padding-left: 30rem;
+}
+
+/* Imagem com 800px e 520px */
+#errorPage .container .imgError img {
+  width: 30em;
+  height: auto;
+}
+#errorPage .container .errorText h1 {
+  color: #5762B7;
+}
+#errorPage .container .errorText {
+  color: #929CE8;
+  font-family: 'Ubuntu', sans-serif, Arial, Helvetica;
+}
+#errorPage .container .errorText .btn {
+  display: inline-block;
+  border: 2px solid #5762B7;
+  padding: 6px 10px;
+  border-radius: 30px;
+}
+#errorPage .container .errorText .btn a {
+  text-decoration: none;
+  color: #5762B7;
+}
+#errorPage .container .errorText .btn:hover, 
+#errorPage .container .errorText .btn:hover a {
+  background-color: #929CE8;
+  color: whitesmoke;
+}
+/* Página do Amin */
+#adminPage {
+  background: whitesmoke;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+#adminPage header {
+  margin-top: 20px;
+  text-align: center;
+  width: 100%;
+}
+#adminPage header a {
+  color: darkblue;
+}
+#adminPage header span {
+  color: #0f943b;
+}
+#adminPage header nav #button-index-page,
+#adminPage header nav #button-logout-page {
+  position: absolute;
+  top: 6%;
+  right: 8%;
+  border-radius: .25rem;
+  padding: 0.5rem 1.25rem;  
+  background-color: #007bff;   
+  border: 1px solid #007bff;
+  color: #FFF;
+}
+#adminPage header nav #button-index-page {  
+  right: 14%;
+}
+#adminPage header nav #button-index-page:hover,
+#adminPage header nav #button-logout-page:hover {
+  background-color: #fff;
+  color: #007bff;  
+  border: 1px solid #007bff;
+}
+#adminPage .nav-table-motivos {
+  width: 70%;
+  margin: 0px auto -18px auto;
+  max-width: inherit;
+  height: 40px;
+}
+#adminPage .nav-table-motivos .table-motivos {
+  width: 270px;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+#adminPage .nav-table-motivos .table-motivos a {
+  color: white;
+  background-color: #007bff;
+  padding: 8px 4px;
+  border-radius: 0.25rem 0.25rem 0rem 0rem;
+  text-decoration: none;
+  border: 1px solid #007bff;
+  border-bottom: none;
+}
+#adminPage .nav-table-motivos .table-motivos a:hover {
+  background-color: whitesmoke;
+  color: #007bff;  
+}
+#adminPage header .line {
+  margin: 18px auto;
+  width: 70%;
+  height: 1px;
+  background-color: black;
+  opacity: 0.2;
+}
+
+#adminPage table {
+  width: 100%;
+}
+
+#adminPage table tbody tr td .icons-area {
+  display: flex;
+  justify-content: space-around;
+}
+
+#adminPage table tbody tr td a img {
+  width: 23px;
+  height: auto;
+}
+
+#adminPage table tbody tr td a:hover img {
+  filter: opacity(0.6);
+}
+
+/* Editando a página Edition Page */
+#editPage {
+  background: url("../images/Search_07.jpg");
+  overflow-x: hidden;
+  background-position: center center;
+  background-size: cover;
+  width: 100vw;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white; /* Vou alterar quando for mexer no Form */
+  font-family: 'Nunito', 'Poppins', sans-serif; /* Vou alterar quando for mexer no Form */
+}
+#editPage .container {
+  max-width: 1140px;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#editPage .container .text-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 35px 0px 20px 0px;
+}
+
+#editPage .container .text-area h1, 
+#editPage .container .text-area h4 {
+  text-align: center;
+}
+#editPage .container .text-area span {
+  color: #03ff4a;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#editPage .container form {
+  max-width: 1000px;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+#editPage .container form label:nth-child(1) input {
+  width: 50px;
+  text-align: center;
+  padding-left: 0px;
+}
+#editPage .container form label p {
+  margin: 0px 0px 0px 10px;
+  font-family: 'Nunito', 'Poppins', sans-serif;
+}
+
+#editPage .container form label input {
+  border-radius: .45rem;
+  width: 400px;
+  height: 35px;
+  padding-left: 10px;
+  outline: none;
+  margin: 0px 15px 25px 15px;
+}
+
+#editPage .container form label textarea {
+  border-radius: 0.30rem;
+  height: auto;
+  padding-left: 10px;
+  outline: none;
+  margin-bottom: 25px;
+}
+
+
+#editPage .container form .button-area-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  margin-right: 50px;
+}
+
+#editPage .container form input[type="submit"],
+.button-back a {
+  height: 40px;
+  width: 80px;
+  border-radius: .85rem;
+  border: 1px solid rgba(0, 0, 0, 0);
+  color: black;
+  cursor: pointer;  
+  padding: .4rem .2rem;  
+  text-decoration: none;
+  background: whitesmoke;
+}
+#editPage .container form input[type="submit"]:hover,
+.button-back a:hover {
+  background: #999;
+  color: whitesmoke;
+  border: 1px solid #999;  
+  text-decoration: none;
+}
+/* Botão de voltar da Página Editar */
+
+.button-area-form .button-back a {
+  padding: .5rem 1.1rem; 
+  margin: 0px;
+}
+
+
+/* Responsivdade no Edit Page */
+@media (max-width: 1040px) {
+  #editPage .container form label input,
+  #editPage .container form label textarea {
+    width: 380px;
+  }
+}
+
+
+
+/* Botão de adicionar na página de Admin */
+.button-absolute {
+  margin-bottom: 3px;
+  margin-left: 200px;
+}
+
+.button-absolute .button-absolute-text {
+  position: absolute;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  z-index: 1; /* Trás o elemento para frente */
+}
+
+.button-absolute .button-absolute-text a {
+  color: black;
+}

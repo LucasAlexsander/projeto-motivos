@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
+class UserController extends Controller
+{
+    /* Verificamos */
+    public function userValidation(Request $request) {     
+        session_start();
+
+        /* Buscando no banco de dados usuarios com o número SIAPE */
+        $result = DB::select('select * from users where SIAPE = :siape', ['siape' => $request->SIAPE]);
+        
+        if($result && $request->senha === $result[0]->senha) {
+           
+            $_SESSION['profile_type'] = $result[0]->profile_type;
+            $_SESSION['conectado'] = 1;
+
+            return redirect('/motivos/home'); /* Funcionando perfeitamente */
+
+        } else {
+            $data = ['erro' => 'userInvalido'];
+            return redirect('/motivos/erro/userInvalido');
+        } 
+    }
+
+    /* Logout do Usuário */
+    public function userLogout() {
+        session_start();
+        session_destroy();
+
+        return redirect('/motivos');
+    }
+
+}
