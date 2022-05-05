@@ -60,6 +60,7 @@
           Gerência Executiva de Diamantina/MG - Desenvolvido por Bruno Cesar Silva
       </p>    
   </div>
+
   
   <div class="container">
     <div id="resultado">

@@ -10,11 +10,13 @@ class UserController extends Controller
     /* Verificamos */
     public function userValidation(Request $request) {     
         session_start();
+        $SIAPE = $request->input('SIAPE');
+        $senha = $request->input('senha');
 
         /* Buscando no banco de dados usuarios com o número SIAPE */
-        $result = DB::select('select * from users where SIAPE = :siape', ['siape' => $request->SIAPE]);
+        $result = DB::select('select * from users where SIAPE = :siape', ['siape' => $SIAPE]);
         
-        if($result && $request->senha === $result[0]->senha) {
+        if($result && $senha === $result[0]->senha) {
            
             $_SESSION['profile_type'] = $result[0]->profile_type;
             $_SESSION['conectado'] = 1;

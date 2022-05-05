@@ -5,32 +5,45 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::redirect('/', '/motivos');
 
-/* LoginController */
-Route::redirect('/', '/motivos/');
-Route::get('/motivos/', [LoginController::class, 'login']);
+Route::prefix('/motivos')->group(function() {
+    /* LoginController */
+    Route::get('/', [LoginController::class, 'login']);
 
-/* Login se tiver erro */
-Route::get('/motivos/erro/userInvalido', function() {
-    return redirect()->action([LoginController::class, 'login'], ['erro' => 'userInvalido']);});
-
-
-/* Home Controller */
-/* Rota do home */
-Route::get('/motivos/home', [HomeController::class, 'home']);
+    /* Login se tiver erro */
+    Route::get('/motivos/erro/userInvalido', function() {
+        return redirect()->action([LoginController::class, 'login'], ['erro' => 'userInvalido']);});
 
 
-/* Página de ADMIN */
-Route::get('/motivos/admin', [HomeController::class, 'adminPage']);
+    /* Home Controller */
+    /* Rota do home */
+    Route::get('home', [HomeController::class, 'home']);
+
+
+    /* Página de ADMIN */
+    /* Grupo de páginas do admin */
+    Route::prefix('admin')->group(function(){
+
+        Route::get('/', function() {
+            echo 'Admin Page';
+        });
+
+        Route::get('/info', function() {
+            echo 'Admin Info';
+        });
+    });
 
 
 
-/* UserController */
-/* Validando o usuário */
-Route::post('motivos/loginConfirm', [UserController::class, 'userValidation']);
+    /* UserController */
+    /* Validando o usuário */
+    Route::post('loginConfirm', [UserController::class, 'userValidation']);
 
-/* Fazendo o logout */
-Route::get('/motivos/logout', [UserController::class, 'userLogout']);
+    /* Fazendo o logout */
+    Route::get('logout', [UserController::class, 'userLogout']);
+
+});
 
 
 
