@@ -1,9 +1,9 @@
 @php
-    require '../resources/views/layout/TratandoTbName.php';
+    require '../resources/views/validator/TratandoTbName.php';
 @endphp
 
 
-@extends('layout.layoutPadrao')
+@extends('layout.default')
 
 <head>
     
@@ -44,10 +44,11 @@
         <div class="line"></div>
     </header>
 
+    <a href="admin/add/cessacao">Adicionar</a>
     
-    
+    {{-- Fazer configurações neste código --}}
 <!-- Tabela de Cessação -->
-<h2 id='cessacao'>Tabela de Cessação</h2>
+{{-- <h2 id='cessacao'>Tabela de Cessação</h2>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -187,6 +188,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    
+   

@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     /* Verificamos */
-    public function userValidation(Request $request) {     
+    public function userValidation(Request $request) {  
+        
         session_start();
         $SIAPE = $request->input('SIAPE');
         $senha = $request->input('senha');
@@ -21,11 +22,11 @@ class UserController extends Controller
             $_SESSION['profile_type'] = $result[0]->profile_type;
             $_SESSION['conectado'] = 1;
 
-            return redirect('/motivos/home'); /* Funcionando perfeitamente */
+            return redirect()->route('motivos.home');
 
         } else {
-            $data = ['erro' => 'userInvalido'];
-            return redirect('/motivos/erro/userInvalido');
+
+            return redirect('/motivos')->with('warning', 'Usuário invalido');
         } 
     }
 

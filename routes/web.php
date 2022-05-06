@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
@@ -17,30 +18,32 @@ Route::prefix('/motivos')->group(function() {
 
 
     /* Home Controller */
-    /* Rota do home */
-    Route::get('home', [HomeController::class, 'home']);
+        /* Rota do home */
+    Route::get('home', [HomeController::class, 'home'])->name('motivos.home');
 
 
     /* Página de ADMIN */
-    /* Grupo de páginas do admin */
+        /* Grupo de páginas do admin */
     Route::prefix('admin')->group(function(){
 
-        Route::get('/', function() {
-            echo 'Admin Page';
-        });
+        Route::get('/', [AdminController::class, 'index'])->name('admin');
 
-        Route::get('/info', function() {
-            echo 'Admin Info';
-        });
+        /* Adicionar registros */
+        Route::get('/add/{tb}', [AdminController::class, 'add']);
+        Route::post('/add/{tb}', [AdminController::class, 'addAction']);
+
+        /* Modificar registros */
+
+        /* Deletar registros */
     });
 
 
 
     /* UserController */
-    /* Validando o usuário */
+        /* Validando o usuário */
     Route::post('loginConfirm', [UserController::class, 'userValidation']);
 
-    /* Fazendo o logout */
+        /* Fazendo o logout */
     Route::get('logout', [UserController::class, 'userLogout']);
 
 });

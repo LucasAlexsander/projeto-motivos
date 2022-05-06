@@ -1,4 +1,4 @@
-@extends('layout.layoutPadrao')
+@extends('layout.default')
 @section('content')
     
 <head>
@@ -68,10 +68,10 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="../../../vendor/jquery/jquery.min.js"></script>
-  <script src="../../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/jquery/jquery.min.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Scripts para funções -->
-  <script type="text/javascript" src="../../../assets/js/script.js"></script>
+  <script type="text/javascript" src="/assets/js/script.js"></script>
 
   @endsection

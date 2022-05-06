@@ -1,7 +1,8 @@
 <?php 
 
-require_once 'userValidation.php';
-require_once 'adminValidation.php';
+
+require_once 'userValidation.php'; /* Verificando se esta conectado */
+require_once 'adminValidation.php'; /* Verificando se é admin o usuários */
 
 $status = ucfirst(filter_input(INPUT_GET, 'status')); 
 $tbName = filter_input(INPUT_GET, 'tb');

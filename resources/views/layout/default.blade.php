@@ -1,9 +1,3 @@
-{{-- @if ($_SESSION['conectado'] != 1)
-  @php
-      header('Location: /motivos');
-  @endphp
-@endif --}}
-
 
 <html lang="pt_BR">
   <head>
@@ -12,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> 
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
-    <link href="../../../assets/css/main.css" type="text/css" rel="stylesheet" />
+    <link href="/assets/css/main.css" type="text/css" rel="stylesheet" />
     
 
     <!--[if lt IE 9]>
@@ -26,10 +20,10 @@
     <![endif]-->
 
     <!-- Bootstrap core CSS-->
-    <link href="../../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"> 
 
     <!-- Custom fonts for this template-->
-    <link href="../../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">    
+    <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">    
 
   </head>
 
