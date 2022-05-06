@@ -67,6 +67,36 @@ class AdminController extends Controller
 
             echo 'Chegamos até aqui sem erro';
         }
-
     }
+
+    public function edit($tb) {
+
+        if($tb === 'reativacao' || $tb === 'suspensao' || $tb === 'cessacao') {
+            
+            if ($tb === 'cessacao' ) {
+
+                $NomeTabela = "Cessação";
+        
+            } elseif ($tb === 'reativacao') {
+        
+                $NomeTabela = "Reativação";
+        
+            } elseif ($tb === "suspensao") {
+        
+                $NomeTabela = "Suspensão";
+            }
+
+            /* Buscar os dados com base na tabela e no id e mandar para a página de editar */
+
+            return view('editRegistros', ['tbNome' => $NomeTabela]);
+
+        } else {
+            return redirect('/motivos/admin');
+        }  
+    }
+
+    public function del() {
+        echo 'teste';
+    }
+
 }

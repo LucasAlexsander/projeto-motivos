@@ -32,9 +32,12 @@ Route::prefix('/motivos')->group(function() {
         Route::get('/add/{tb}', [AdminController::class, 'add']);
         Route::post('/add/{tb}', [AdminController::class, 'addAction']);
 
-        /* Modificar registros */
+        /* Editar registros */
+        Route::get('/edit/{tb}', [AdminController::class, 'edit']);
+        Route::post('/edit/{tb}', [AdminController::class, 'editAction']);
 
         /* Deletar registros */
+        Route::get('/delete/{id}', [AdminController::class, 'del']);
     });
 
 
