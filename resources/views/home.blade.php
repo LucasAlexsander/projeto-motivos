@@ -1,6 +1,8 @@
 @extends('layout.default')
+@section('title', 'Home')
+
 @section('content')
-    
+
 <head>
   <title>INSS - Consultar Motivo</title>
 </head>
@@ -17,11 +19,11 @@
               <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
                 <a onclick="return confirm('Deseja sair?')" class="nav-item nav-link" id="button-logout-page" href="/motivos/logout" aria-controls="nav-Motsus">Sair</a>
 
-                {{-- <?php if($_SESSION['profile_type'] === '1') {?>
-                  <a class="nav-item nav-link" id="button-admin-page" href="/admin" aria-controls="nav-Motsus">Admin</a>
-                  <?php }?> --}}
-                  <a class="nav-item nav-link" id="button-admin-page" href="admin" aria-controls="nav-Motsus">Admin</a>
-                  
+
+                  @if ($profile_type == 1)
+                    <a class="nav-item nav-link" id="button-admin-page" href="admin" aria-controls="nav-Motsus">Admin</a>
+                  @endif
+
                 <a class="nav-item nav-link active" id="nav-Motces-tab" data-toggle="tab" href="#nav-Motces" role="tab" aria-controls="nav-Motces" aria-selected="true" onClick="set_item('')">Motivo de Cessação</a>
                 <a class="nav-item nav-link" id="nav-Motsus-tab" data-toggle="tab" href="#nav-Motsus" role="tab" aria-controls="nav-Motsus" aria-selected="false" onClick="set_item('')">Motivo de Suspensão</a>
               </div>
@@ -37,8 +39,8 @@
                     <div class="tab-pane fade show active" id="nav-Motces" role="tabpanel" aria-labelledby="nav-Motces-tab">
                     </div>
                     <div class="tab-pane fade" id="nav-Motsus" role="tabpanel" aria-labelledby="nav-Motsus-tab">
-                    </div>  
-                  </div>                    
+                    </div>
+                  </div>
                 </div>
                 <div class="list-group">
                   <ul class="list-unstyled list-group" id="sugestao" style="margin-bottom:10px;"></ul>
@@ -58,10 +60,10 @@
     </form>
       <p style="float: right;margin-top: -40px;margin-right: 20px;color: #747171;font-size: 15px;">
           Gerência Executiva de Diamantina/MG - Desenvolvido por Bruno Cesar Silva
-      </p>    
+      </p>
   </div>
 
-  
+
   <div class="container">
     <div id="resultado">
     </div>

@@ -32,7 +32,7 @@
 .s006 #button-admin-page:hover,
 .s006 #button-logout-page:hover {
  background-color: #007bff;
-  color: #fff;  
+  color: #fff;
 }
 
 .s006 form {
@@ -93,7 +93,7 @@
 .reativa-text{
 background-color: rgba(0, 0, 0, 0.6) !important;
 opacity: 1;
-color: #fff !important; 
+color: #fff !important;
 }
 
 /*  Nav Pills */
@@ -223,7 +223,7 @@ color: #fff !important;
   text-decoration: none;
   color: #5762B7;
 }
-#errorPage .container .errorText .btn:hover, 
+#errorPage .container .errorText .btn:hover,
 #errorPage .container .errorText .btn:hover a {
   background-color: #929CE8;
   color: whitesmoke;
@@ -256,18 +256,18 @@ color: #fff !important;
   top: 6%;
   right: 8%;
   border-radius: .25rem;
-  padding: 0.5rem 1.25rem;  
-  background-color: #007bff;   
+  padding: 0.5rem 1.25rem;
+  background-color: #007bff;
   border: 1px solid #007bff;
   color: #FFF;
 }
-#adminPage header nav #button-index-page {  
+#adminPage header nav #button-index-page {
   right: 14%;
 }
 #adminPage header nav #button-index-page:hover,
 #adminPage header nav #button-logout-page:hover {
   background-color: #fff;
-  color: #007bff;  
+  color: #007bff;
   border: 1px solid #007bff;
 }
 #adminPage .nav-table-motivos {
@@ -294,7 +294,7 @@ color: #fff !important;
 }
 #adminPage .nav-table-motivos .table-motivos a:hover {
   background-color: whitesmoke;
-  color: #007bff;  
+  color: #007bff;
 }
 #adminPage header .line {
   margin: 18px auto;
@@ -331,6 +331,7 @@ color: #fff !important;
   width: 100vw;
   height: auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white; /* Vou alterar quando for mexer no Form */
@@ -351,7 +352,7 @@ color: #fff !important;
   margin: 35px 0px 20px 0px;
 }
 
-#editPage .container .text-area h1, 
+#editPage .container .text-area h1,
 #editPage .container .text-area h4 {
   text-align: center;
 }
@@ -411,8 +412,8 @@ color: #fff !important;
   border-radius: .85rem;
   border: 1px solid rgba(0, 0, 0, 0);
   color: black;
-  cursor: pointer;  
-  padding: .4rem .2rem;  
+  cursor: pointer;
+  padding: .4rem .2rem;
   text-decoration: none;
   background: whitesmoke;
 }
@@ -420,13 +421,13 @@ color: #fff !important;
 .button-back a:hover {
   background: #999;
   color: whitesmoke;
-  border: 1px solid #999;  
+  border: 1px solid #999;
   text-decoration: none;
 }
 /* Botão de voltar da Página Editar */
 
 .button-area-form .button-back a {
-  padding: .5rem 1.1rem; 
+  padding: .5rem 1.1rem;
   margin: 0px;
 }
 
