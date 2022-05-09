@@ -8,10 +8,8 @@ class HomeController extends Controller
 {
     public function home(Request $request) {
 
-        session_start();
         $profile = [
-            'profile_type' => $_SESSION['profile_type'],
-            'conectado' => $_SESSION['conectado']
+            'profile_type' => session()->get('profile_type')
         ];
 
         return view('home', $profile);

@@ -1,7 +1,3 @@
-@php
-    require '../resources/views/validator/TratandoTbName.php';
-@endphp
-
 @extends('layout.dataTable')
 
 @section('title', 'Admin Page')

@@ -4,36 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\User;
+use App\Models\Usuarios;
+
 
 class UserController extends Controller
 {
     /* Verificamos */
     public function userValidation(Request $request) {
 
-        session_start();
         $SIAPE = $request->input('SIAPE');
         $senha = $request->input('senha');
 
         /* Buscando no banco de dados usuarios com o número SIAPE */
-        $result = DB::select('select * from users where SIAPE = :siape', ['siape' => $SIAPE]);
+        $result = Usuarios::where('SIAPE', $SIAPE)->first();
 
-        if($result && $senha === $result[0]->senha) {
+        if($result && $senha === $result->senha) {
+            session(['profileType' => $result->profile_type]);
 
-            $_SESSION['profile_type'] = $result[0]->profile_type;
-            $_SESSION['conectado'] = 1;
-
-            return redirect()->route('motivos.home')->with(['profile_type' => $result[0]->profile_type]);
+            return redirect()->route('motivos.home')->with(['profileType' => $result->profile_type]);
 
         } else {
-
             return redirect('/motivos')->with('warning', 'Usuário invalido');
         }
     }
 
     /* Logout do Usuário */
     public function userLogout() {
-        session_start();
-        session_destroy();
+        session()->forget(['conectado', 'profile_type']);
 
         return redirect('/motivos');
     }
