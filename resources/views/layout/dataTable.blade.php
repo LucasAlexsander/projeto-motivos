@@ -8,7 +8,6 @@
     <link href="/assets/css/main.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/vendor/DataTables/datatables.min.css">
 
-
     <!-- Bootstrap core CSS for DataTable-->
     <link type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,7 +26,6 @@
     <script type="text/javascript" charset="utf8" src="/vendor/DataTables/datatables.min.js"></script>
 
     <script src="/assets/js/main.js"></script>
-
 
 </body>
 </html>

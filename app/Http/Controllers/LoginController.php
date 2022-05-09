@@ -10,7 +10,6 @@ class LoginController extends Controller
         $data = [
             'erro' => $request->erro
         ];
-        return view('login', $data);   
-
+        return view('login', $data); 
     }
 }

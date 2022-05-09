@@ -19,7 +19,6 @@
               <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
                 <a onclick="return confirm('Deseja sair?')" class="nav-item nav-link" id="button-logout-page" href="/motivos/logout" aria-controls="nav-Motsus">Sair</a>
 
-
                   @if ($profile_type == 1)
                     <a class="nav-item nav-link" id="button-admin-page" href="admin" aria-controls="nav-Motsus">Admin</a>
                   @endif
@@ -62,7 +61,6 @@
           Gerência Executiva de Diamantina/MG - Desenvolvido por Bruno Cesar Silva
       </p>
   </div>
-
 
   <div class="container">
     <div id="resultado">

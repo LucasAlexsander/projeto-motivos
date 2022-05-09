@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CrudDbFindAll;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
+// CRUD para o Banco de Dados
+use App\Models\Cessacao;
+use App\Models\Reativacao;
+use App\Models\Suspensao;
+use App\Models\User;
+
 
 class AdminController extends Controller
 {
@@ -12,18 +18,17 @@ class AdminController extends Controller
 
         // Buscar os dados
         // Dados de Cessação
-        $cessacao = DB::select('select * from cessacao');
+        $cessacao = Cessacao::all();
         // Dados de Reativação
-        $reativacao = DB::select('select * from reativacao');
+        $reativacao = Reativacao::all();
         // Dados de Suspensão
-        $suspensao = DB::select('select * from suspensao');
+        $suspensao = Suspensao::all();
 
         $data = [
             'cessacao' => $cessacao,
             'reativacao' => $reativacao,
             'suspensao' => $suspensao
         ];
-
 
         return view('admin', $data);
     }
@@ -34,17 +39,10 @@ class AdminController extends Controller
 
         if($tb === 'reativacao' || $tb === 'suspensao' || $tb === 'cessacao') {
 
-            if ($tb === 'cessacao' ) {
-
-                $NomeTabela = "Cessação";
-
-            } elseif ($tb === 'reativacao') {
-
-                $NomeTabela = "Reativação";
-
-            } elseif ($tb === "suspensao") {
-
-                $NomeTabela = "Suspensão";
+            if ($tb === 'cessacao' ) {            
+                $NomeTabela = "Cessação";            
+            } else {
+                $NomeTabela = $tb === 'reativacao' ? 'Reativação' : 'Suspensão';
             }
 
             return view('addMotivo', ['tbNome' => $NomeTabela]);
@@ -56,40 +54,48 @@ class AdminController extends Controller
 
     /* Adicionando os registros */
     public function addAction(Request $request, $id) {
+        // Validando o formulário
+        $request->validate([
+            'codigo' => ['required'],
+            'nome' => ['required'],
+        ]);
+        
         $rawData = $request->except(['_token']);
         $tabela = $id;
-
-        echo '<pre>';
-        print_r($rawData);
-        echo '</pre>';
 
         $tbNomeAccent = $tabela == 'cessacao' ? 'Cessação' : 'Reativação';
 
         if ($tabela === 'reativacao') {
 
-            DB::insert('insert into reativacao (codigo, nome) values (:codigo, :nome)',
-            [
-                'codigo' => $rawData['codigo'],
-                'nome' => $rawData['nome']
-            ]);
-            $lastId = DB::getPdo()->lastInsertId();
+            $insert = new Reativacao();
+            $insert->codigo = $rawData['codigo'];
+            $insert->nome = $rawData['nome'];
+            $insert->save();
+
+            $lastId = $insert->id_reativacao;
 
             return redirect()->route('motivos.admin')->with('status', 'Adicionado')->with('tableName', 'Reativação')->with('tableNameNotAccent', 'reativacao')->with('lastId', $lastId);
 
         } else {
 
-            DB::insert('insert into '. $tabela .' (codigo, nome, conc_final, prisma_sabi, reatnb_plenus, situacao)
-            values (:codigo, :nome, :conc_final, :prisma_sabi, :reatnb_plenus, :situacao)',
-            [
-                'codigo' => $rawData['codigo'],
-                'nome' => $rawData['nome'],
-                'conc_final' => $rawData['conc_final'],
-                'prisma_sabi' => $rawData['prisma_sabi'],
-                'reatnb_plenus' => $rawData['reatnb_plenus'],
-                'situacao' => $rawData['situacao']
+            $request->validate([
+                'conc_final' => ['required'],
+                'prisma_sabi' => ['required'],
+                'reatnb_plenus' => ['required'],
+                'situacao' => ['required'],
             ]);
-            $lastId = DB::getPdo()->lastInsertId();
 
+            $insert = $tabela === 'cessacao' ? new Cessacao() : new Suspensao(); 
+
+            $insert->codigo = $rawData['codigo'];
+            $insert->nome = $rawData['nome'];
+            $insert->conc_final = $rawData['conc_final'];
+            $insert->prisma_sabi = $rawData['prisma_sabi'];
+            $insert->reatnb_plenus = $rawData['reatnb_plenus'];
+            $insert->situacao = $rawData['situacao'];
+            $insert->save();
+
+            $lastId = $tabela === 'cessacao' ? $insert->id_cessacao : $insert->id_suspensao;
 
             return redirect()->route('motivos.admin')->with('status', 'Adicionado')->with('tableName', $tbNomeAccent)->with('tableNameNotAccent', $tabela)->with('lastId', $lastId);
         }
@@ -101,21 +107,13 @@ class AdminController extends Controller
 
         if($tb === 'reativacao' || $tb === 'suspensao' || $tb === 'cessacao') {
 
-            if ($tb === 'cessacao' ) {
-
-                $NomeTabela = "Cessação";
-
-            } elseif ($tb === 'reativacao') {
-
-                $NomeTabela = "Reativação";
-
-            } elseif ($tb === "suspensao") {
-
-                $NomeTabela = "Suspensão";
+            if ($tb === 'cessacao' ) {            
+                $NomeTabela = "Cessação";            
+            } else {
+                $NomeTabela = $tb === 'reativacao' ? 'Reativação' : 'Suspensão';
             }
 
             /* Buscar os dados com base na tabela e no id e mandar para a página de editar */
-
             $DbData = DB::select('select * from '. $tb . ' where id_'.$tb.' = ?', [$id]);
 
             $rawData = [
@@ -131,43 +129,44 @@ class AdminController extends Controller
         }
     }
 
-    public function editAction(Request $request) {
-        echo '<pre>';
-        print_r($request->except(['_token']));
-        echo '</pre>';
+    public function editAction(Request $request, $id, $tb) {
+        // Validando o formulário
+        $request->validate([
+            'codigo' => ['required'],
+            'nome' => ['required'],
+        ]);
+        
         $DbData = $request->except(['_token']);
 
-
         if($request->tb == 'reativacao') {
-            DB::update('update reativacao set codigo = :codigo, nome = :nome where id_'. $request->tb .' = :id',
-            [
+
+            Reativacao::where('id_reativacao', $id)->update([
                 'codigo' => $DbData['codigo'],
-                'nome' => $DbData['nome'],
-                'id' => $request->id
+                'nome' => $DbData['nome']
             ]);
 
-            return redirect('/motivos/admin/edit/'. $request->id . '/'. $request->tb)->with('success', 'Alterado');
-
-        } else {
-
-            /* Caso tenha algum valor vazio vai entrar no banco de dados sem erro */
-            $prisma_sabi = empty($DbData['prisma_sabi']) ? '  ' : $DbData['prisma_sabi'];
-            $reatnb_plenus = empty($DbData['reatnb_plenus']) ? '  ' : $DbData['reatnb_plenus'];
-            $situacao = empty($DbData['situacao']) ? '  ' : $DbData['situacao'];
-
-            DB::update('update '. $request->tb .' set codigo = :codigo, nome = :nome, conc_final = :conc_final, prisma_sabi = :prisma_sabi, reatnb_plenus = :reatnb_plenus, situacao = :situacao where id_'. $request->tb .' = :id',
-            [
-                'codigo' => $DbData['codigo'],
-                'nome' => $DbData['nome'],
-                'conc_final' => $DbData['conc_final'],
-                'prisma_sabi' => $prisma_sabi,
-                'reatnb_plenus' => $reatnb_plenus,
-                'situacao' => $situacao,
-                'id' => $request->id
+            return redirect('/motivos/admin/edit/'. $id . '/'. $tb)->with('success', 'Alterado');
+        } else {  
+            
+            $request->validate([
+                'conc_final' => ['required'],
+                'prisma_sabi' => ['required'],
+                'reatnb_plenus' => ['required'],
+                'situacao' => ['required'],
             ]);
 
-            return redirect('/motivos/admin/edit/'. $request->id . '/'. $request->tb)->with('success', 'Alterado');
+            $insert = $tb === 'cessacao' ? Cessacao::find($id) : Suspensao::find($id);
 
+            $insert->codigo = $DbData['codigo'];
+            $insert->nome = $DbData['nome'];
+            $insert->conc_final = $DbData['conc_final'];
+            $insert->prisma_sabi = $DbData['prisma_sabi'];
+            $insert->reatnb_plenus = $DbData['reatnb_plenus'];
+            $insert->situacao = $DbData['situacao'];
+
+            $insert->save();
+
+            return redirect('/motivos/admin/edit/'. $request->id . '/'. $request->tb)->with('success', 'Alterado');
         }
     }
 
@@ -175,21 +174,13 @@ class AdminController extends Controller
 
     public function del($id, $tb) {
 
-        if ($tb === 'cessacao' ) {
-
-            $NomeTabela = "Cessação";
-
-        } elseif ($tb === 'reativacao') {
-
-            $NomeTabela = "Reativação";
-
-        } elseif ($tb === "suspensao") {
-
-            $NomeTabela = "Suspensão";
+        if ($tb === 'cessacao' ) {            
+            $NomeTabela = "Cessação";            
+        } else {
+            $NomeTabela = $tb === 'reativacao' ? 'Reativação' : 'Suspensão';
         }
 
         DB::delete('delete from '. $tb .' where id_'.$tb.' = :id', ['id'=>$id]);
         return redirect()->route('motivos.admin')->with('status', 'Deletado')->with('tableName', $NomeTabela)->with('tableNameNotAccent', $tb);
     }
-
 }

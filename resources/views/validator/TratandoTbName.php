@@ -1,6 +1,4 @@
 <?php 
-
-
 require_once 'userValidation.php'; /* Verificando se esta conectado */
 require_once 'adminValidation.php'; /* Verificando se é admin o usuários */
 
@@ -29,4 +27,3 @@ if ($tbName === 'cessacao') {
 
     $tableName = 'Excluido';
 } 
-?>

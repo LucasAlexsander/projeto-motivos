@@ -6,7 +6,6 @@
 
     <body id='editPage'>
 
-
         <div class="container">
 
             <div class="text-area">
@@ -14,10 +13,16 @@
                 <h1> {{$tbNome}} </h1>
             </div>
 
+            @if ($errors->any())
+                <h4>Status: <span style="color: #F00"><b>Erro: </b>
+                    @foreach ($errors->all() as $erro)
+                        {{$erro}}
+                    @endforeach
+                </span></h4>
+            @endif
+
         <form method="POST">
             @csrf
-
-
             <label>
                 <p>Código:</p>
                 <input type="text" name="codigo" placeholder="Código" required>
@@ -61,7 +66,6 @@
                 </label>
 
             @endif
-
 
             <div class="button-area-form">
                 <input type="submit" value="Adicionar">
