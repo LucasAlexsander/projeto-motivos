@@ -39,3 +39,19 @@ CREATE TABLE `reativacao` (
   `nome` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id_reativacao`)
 ) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+--
+-- Table structure for table `users`
+--
+CREATE TABLE `users` (
+	`id_users` INT(11) NOT NULL AUTO_INCREMENT,
+	`nome` VARCHAR(50) NOT NULL,
+	`email` VARCHAR(50) NOT NULL,
+	`senha` VARCHAR(255) NOT NULL,
+	`profile_type` INT(1) NOT NULL DEFAULT '0',
+	`SIAPE` INT(12) NOT NULL,
+	PRIMARY KEY (`id_users`),
+	UNIQUE INDEX `email` (`email`),
+	UNIQUE INDEX `SIAPE_2` (`SIAPE`),
+	INDEX `SIAPE` (`SIAPE`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
