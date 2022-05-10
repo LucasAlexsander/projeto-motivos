@@ -17,14 +17,10 @@ class ValidateAdmin
     public function handle(Request $request, Closure $next)
     {
         $result = $request->session()->all();
-        
-        echo '<pre>';
-        print_r($result);
-        echo '</pre>';
 
-        /* if(session()->get('profileType') != 1) {
-            redirect()->route('motivos.home');
-        } */
+        if(session()->get('profileType') != 1) {
+            return redirect()->route('motivos.home');
+        }
         return $next($request);
     }
 }

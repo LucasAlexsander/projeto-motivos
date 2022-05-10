@@ -20,9 +20,11 @@ class UserController extends Controller
         $result = Usuarios::where('SIAPE', $SIAPE)->first();
 
         if($result && $senha === $result->senha) {
+            echo $result->profile_type;
             session(['profileType' => $result->profile_type]);
+            session(['conectado' => 1]);
 
-            return redirect()->route('motivos.home')->with(['profileType' => $result->profile_type]);
+            return redirect()->route('motivos.home');
 
         } else {
             return redirect('/motivos')->with('warning', 'Usuário invalido');

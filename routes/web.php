@@ -46,6 +46,10 @@ Route::prefix('/motivos')->group(function() {
             /* Deletar registros */
             Route::get('/delete/{id}/{tb}', [AdminController::class, 'del']);
             });
-        });        
+        }); 
+        
+        Route::fallback(function() {
+            return view('404');
+        });
     });    
 });
