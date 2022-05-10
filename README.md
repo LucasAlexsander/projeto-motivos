@@ -20,11 +20,17 @@
     ```
     composer install
     ```
-3. Criando o aquivo `.ENV`
+
+3. Criando o aquivo `.env`
 
     - Duplique o arquivo `.env.example` e troque seu nome para `.env`
 
-4. Depois de baixar e fazer toda a configuração a pasta raiz deve ter 25 arquivos.
+4. Definir uma chave para o arquivo `.env`. Para isso use o comando:
+    ```
+    php artisan key:generate
+    ```
+
+5. Depois de baixar e fazer toda a configuração a pasta raiz deve ter 25 arquivos.
 
 <br>
 
