@@ -14,15 +14,17 @@
 
 1. Fazer o clone ou baixar o projeto
     ``` 
-    git clone -b master <diretório do git>
+    git clone -b master https://github.com/LucasAlexsander/projeto-motivos.git
     ```
 2. Baixar as dependências dentro da pasta do projeto
     ```
     composer install
     ```
-3. Caso o arquivo .ENV não venha instalado depois de realizar o passo 2, recomendo copiar o arquivo de outro projeto do laravel e trocar as configurações.
+3. Criando o aquivo `.ENV`
 
-4. Depois de baixar e configurar os arquivos deve ter 25 arquivos na pasta raiz.
+    - Duplique o arquivo `.env.example` e troque seu nome para `.env`
+
+4. Depois de baixar e fazer toda a configuração a pasta raiz deve ter 25 arquivos.
 
 <br>
 
