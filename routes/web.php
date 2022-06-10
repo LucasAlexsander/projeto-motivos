@@ -9,12 +9,14 @@ use Illuminate\Support\Facades\Route;
 Route::redirect('/', '/motivos');
 
 Route::prefix('/motivos')->group(function() {
-    /* LOGINCONTROLLER */
-    Route::get('/', [LoginController::class, 'login'])->name('motivos.login');
 
-    /* USERCONTROLLER */
-    /* Validando o usuário */
-    Route::post('loginConfirm', [UserController::class, 'userValidation']);
+    Route::get('/teste', [HomeController::class, 'teste']);
+
+    /* HOMECONTROLLER */
+    /* Rota do home */
+    Route::get('/', [HomeController::class, 'home'])->name('motivos');
+
+    Route::get('/login', [LoginController::class, 'index'])->name('motivos.admin.login');
 
     /* Caso o usuário não tenha logado não entrará */
     Route::middleware('validateuser')->group(function () {    

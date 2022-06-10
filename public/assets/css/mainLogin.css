@@ -322,6 +322,7 @@ iframe {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .login100-form-btn {
@@ -339,7 +340,7 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 0 20px;
-  width: 100%;
+  width: 48%;
   height: 62px;
   background-color: #827ffe;
   border-radius: 3px;
@@ -354,6 +355,9 @@ iframe {
   background-color: #403866;
 }
 
+#buttonBack {
+  color: #fff;
+}
 
 /*------------------------------------------------------------------
 [ Alert validate ]*/

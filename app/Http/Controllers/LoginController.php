@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function login(Request $request) {
+    public function index(Request $request) {
         $data = [
             'erro' => $request->erro
         ];

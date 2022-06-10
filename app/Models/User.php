@@ -26,7 +26,8 @@ class User extends Authenticatable
         'email',
         'senha',
         'SIAPE',
-        'profile_type',
+        'admin',
+        'email_verified_at',
     ];
 
     /**

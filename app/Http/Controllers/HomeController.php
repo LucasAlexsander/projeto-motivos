@@ -18,4 +18,8 @@ class HomeController extends Controller
     public function adminPage() {
         return view('admin');
     }
+
+    public function teste() {
+        return view('addMotivo');
+    }
 }

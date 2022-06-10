@@ -228,6 +228,7 @@ color: #fff !important;
   background-color: #929CE8;
   color: whitesmoke;
 }
+
 /* Página do Amin */
 #adminPage {
   background: whitesmoke;
@@ -322,6 +323,8 @@ color: #fff !important;
   filter: opacity(0.6);
 }
 
+/* AQUIII */
+
 /* Editando a página Edition Page */
 #editPage {
   background: url("../images/Search_07.jpg");
@@ -364,11 +367,12 @@ color: #fff !important;
 #editPage .container form {
   max-width: 1000px;
   height: auto;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
 }
-#editPage .container form label:nth-child(1) input {
+#Id input {
+  background: rgb(226, 225, 225);
+  cursor: not-allowed;
+}
+#editPage .container form:nth-child(1) input {
   width: 50px;
   text-align: center;
   padding-left: 0px;
@@ -377,14 +381,12 @@ color: #fff !important;
   margin: 0px 0px 0px 10px;
   font-family: 'Nunito', 'Poppins', sans-serif;
 }
-
 #editPage .container form label input {
   border-radius: .45rem;
-  width: 400px;
+  width: 100%;
   height: 35px;
   padding-left: 10px;
   outline: none;
-  margin: 0px 15px 25px 15px;
 }
 
 #editPage .container form label textarea {
@@ -395,20 +397,19 @@ color: #fff !important;
   margin-bottom: 25px;
 }
 
-
+/* Botões */  
 #editPage .container form .button-area-form {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  width: 200px;
+  width: 100%;
   height: 100px;
-  margin-right: 50px;
 }
-
 #editPage .container form input[type="submit"],
 .button-back a {
   height: 40px;
   width: 80px;
+  margin-left: 30px;
   border-radius: .85rem;
   border: 1px solid rgba(0, 0, 0, 0);
   color: black;

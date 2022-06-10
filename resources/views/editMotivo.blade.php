@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <body id='editPage'>
+<body id='editPage'>
 
     <div class="container">
 
@@ -30,10 +30,12 @@
         <form method="POST">
             @csrf
             <input type="text" name="tableName" value="{{$tbNome}}" hidden>
+            <input type="text" name="tableName" hidden>
 
-            <label>
+            <label id="Id">
                 <p>ID:</p>
                 <input type="text" name="id" value="{{$id}}" readonly required>
+                <input type="text" name="id" readonly required>
             </label>
 
             <br><br>
@@ -57,36 +59,38 @@
                 <label>
                     <p>Conceito e Finalidade:</p>
                     <textarea name="conc_final" cols="100" rows="6" required> @php echo ($DbData[0]->conc_final) @endphp </textarea>
+
                 </label>
 
                 <br><br>
 
                 <label>
                     <p>Prisma_sabi:</p>
-                    <textarea style="resize: none;" name="prisma_sabi" cols="50" rows="1" required> @php echo trim($DbData[0]->prisma_sabi) @endphp </textarea>
+                    <textarea style="resize: none;" name="prisma_sabi" cols="100" rows="2" required> @php echo trim($DbData[0]->prisma_sabi) @endphp </textarea>
                 </label>
 
                 <br><br>
 
                 <label>
                     <p>Reatnb_plenus:</p>
-                    <textarea style="resize: none;" name="reatnb_plenus" cols="50" rows="1" required>@php echo trim($DbData[0]->reatnb_plenus) @endphp</textarea>
+                    <textarea style="resize: none;" name="reatnb_plenus" cols="100" rows="2" required>@php echo trim($DbData[0]->reatnb_plenus) @endphp</textarea>
                 </label>
 
                 <br><br>
 
                 <label>
                     <p>Situação:</p>
-                    <textarea name="situacao" cols="50" rows="6" required> @php echo trim($DbData[0]->situacao) @endphp </textarea>
+                    <textarea name="situacao" cols="100" rows="7" required> @php echo trim($DbData[0]->situacao) @endphp </textarea>
+
                 </label>
 
             @endif
 
             <div class="button-area-form">
-                <input type="submit" value="Salvar">
                 <div class="button-back">
                     <a href="/motivos/admin">Voltar</a>
                 </div>
+                <input type="submit" value="Salvar">
             </div>
 
         </form>

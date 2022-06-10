@@ -44,6 +44,9 @@
 				</div>
 
 				<div class="container-login100-form-btn m-t-17">
+					<a id="buttonBack" href="{{route('motivos')}}" class="login100-form-btn">
+						Voltar
+					</a>
 					<button class="login100-form-btn">
 						Login
 					</button>
