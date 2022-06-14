@@ -16,7 +16,7 @@
         <div class="desc">
             Desculpe, a página que você está procurando não existe ou esta indisponível.
         </div>
-        <button type="button" onclick="location.href='/motivos/home'">Voltar Para o Home</button>
+        <a type="button" href={{route('motivos')}}>Voltar Para o Home</a>
     </div>
 </body>
 </html>

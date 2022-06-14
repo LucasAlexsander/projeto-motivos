@@ -35,7 +35,6 @@
             <label id="Id">
                 <p>ID:</p>
                 <input type="text" name="id" value="{{$id}}" readonly required>
-                <input type="text" name="id" readonly required>
             </label>
 
             <br><br>

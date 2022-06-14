@@ -12,55 +12,38 @@ Route::redirect('/', '/motivos');
 Route::prefix('/motivos')->group(function() {
 
     /* HOMECONTROLLER */
-    /* Rota do home */
+    /* Rota do Home */
     Route::get('/', [HomeController::class, 'home'])->name('motivos');
 
-    /* Login para a página de ADM */
+    /* Rota para Logar */
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'authenticate']);
 
+    /* Rota para Registrar novo usuário */
     Route::get('/register', [RegisterController::class, 'index'])->name('register');
     Route::post('/register', [RegisterController::class, 'register']);
 
+    /* Logout */
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    
-    Route::get('/admin', [AdminController::class, 'index'])->name('motivos.admin');
+    Route::prefix('/admin')->group(function(){
 
-    // /* Caso o usuário não tenha logado não entrará */
-    // Route::middleware('validateuser')->group(function () {    
-            
-    //     /* USERCONTROLLER */
-    //         /* Fazendo o logout */
-    //     Route::get('logout', [UserController::class, 'userLogout']);
+        /* Página de ADMIN */
+        Route::get('/', [AdminController::class, 'index'])->name('motivos.admin');
 
-    //     /* HOMECONTROLLER */
-    //         /* Rota do home */
-    //     Route::get('home', [HomeController::class, 'home'])->name('motivos.home');
+        /* Adicionando Motivos */
+        Route::get('/add/{tb}', [AdminController::class, 'add']);
+        Route::post('/add/{tb}', [AdminController::class, 'addAction']);
 
-    //     /* Validando para somente admin ter acesso */
-    //     Route::middleware('validateadmin')->group(function() {
-    //         /* ADMINCONTROLLER */
-    //             /* Grupo de páginas do admin */
-    //         Route::prefix('admin')->group(function(){
+        /* Editando Motivos */
+        Route::get('/edit/{id}/{tb}', [AdminController::class, 'edit']);
+        Route::post('/edit/{id}/{tb}', [AdminController::class, 'editAction']);
 
-    //         Route::get('/', [AdminController::class, 'index'])->name('motivos.admin');
-
-    //         /* Adicionar registros */
-    //         Route::get('/add/{tb}', [AdminController::class, 'add']);
-    //         Route::post('/add/{tb}', [AdminController::class, 'addAction']);
-
-    //         /* Editar registros */
-    //         Route::get('/edit/{id}/{tb}', [AdminController::class, 'edit']);
-    //         Route::post('/edit/{id}/{tb}', [AdminController::class, 'editAction']);
-
-    //         /* Deletar registros */
-    //         Route::get('/delete/{id}/{tb}', [AdminController::class, 'del']);
-    //         });
-    //     }); 
+        /* Deletando Motivos */
+        Route::get('/delete/{id}/{tb}', [AdminController::class, 'del']);
+    });
         
-    //     Route::fallback(function() {
-    //         return view('404');
-    //     });
-    // });    
+    Route::fallback(function() {
+        return view('404');
+    });
 });
