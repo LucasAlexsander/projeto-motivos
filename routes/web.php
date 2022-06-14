@@ -43,7 +43,7 @@ Route::prefix('/motivos')->group(function() {
         Route::get('/delete/{id}/{tb}', [AdminController::class, 'del']);
     });
         
+});
     Route::fallback(function() {
         return view('404');
     });
-});
