@@ -10,8 +10,6 @@ Route::redirect('/', '/motivos');
 
 Route::prefix('/motivos')->group(function() {
 
-    Route::get('/teste', [HomeController::class, 'teste']);
-
     /* HOMECONTROLLER */
     /* Rota do home */
     Route::get('/', [HomeController::class, 'home'])->name('motivos');
