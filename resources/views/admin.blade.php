@@ -1,4 +1,4 @@
-@extends('layout.dataTable')
+@extends('layouts.dataTable')
 
 @section('title', 'Admin Page')
 

@@ -389,6 +389,9 @@ color: #fff !important;
   text-align: center;
   padding-left: 0px;
 }
+.container form label {
+  width: 100%;
+}
 #editPage .container form label p {
   margin: 0px 0px 0px 10px;
   font-family: 'Nunito', 'Poppins', sans-serif;
