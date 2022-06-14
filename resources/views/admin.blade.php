@@ -22,9 +22,11 @@
         @endif
 
         <nav id="navegar">
-        <div class="nav justify-content-end" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link" id="button-index-page" href="home" aria-controls="nav-Motsus">Voltar</a>
-        <a onclick="return confirm('Deseja sair?')" class="nav-item nav-link" id="button-logout-page" href="/motivos/logout" aria-controls="nav-Motsus">Sair</a>
+            <div class="nav justify-content-end" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link" id="button-index-page" href="{{route('motivos')}}" aria-controls="nav-Motsus">Voltar</a>
+                <a class="nav-item nav-link" id="button-add-page" href="{{route('register')}}" aria-controls="nav-Motsus">Adicionar Usuário</a>
+                <a onclick="return confirm('Deseja sair?')" class="nav-item nav-link" id="button-logout-page" href="/motivos/logout" aria-controls="nav-Motsus">Logout</a>
+            </div>
         </nav>
         <div class="nav-table-motivos">
             <div class="table-motivos">

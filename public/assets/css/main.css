@@ -252,6 +252,7 @@ color: #fff !important;
   color: #0f943b;
 }
 #adminPage header nav #button-index-page,
+#adminPage header nav #button-add-page,
 #adminPage header nav #button-logout-page {
   position: absolute;
   top: 6%;
@@ -263,9 +264,10 @@ color: #fff !important;
   color: #FFF;
 }
 #adminPage header nav #button-index-page {
-  right: 14%;
+  right: 16%;
 }
 #adminPage header nav #button-index-page:hover,
+#adminPage header nav #button-add-page:hover,
 #adminPage header nav #button-logout-page:hover {
   background-color: #fff;
   color: #007bff;
@@ -323,6 +325,16 @@ color: #fff !important;
   filter: opacity(0.6);
 }
 
+#button-index-page {
+  
+}
+#button-add-page {
+  margin-top: 50px;
+  margin-right: 10px;
+}
+#button-logout-page {
+  
+}
 /* AQUIII */
 
 /* Editando a página Edition Page */
@@ -441,6 +453,7 @@ color: #fff !important;
   }
 }
 
+/* Botões de voltar, adicionar usuário e logout da página admin */
 
 
 /* Botão de adicionar na página de Admin */

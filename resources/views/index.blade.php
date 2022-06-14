@@ -17,7 +17,7 @@
             <nav id="navegar">
               <!-- Altera para display None dependendo do user -->
               <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link" id="button-logout-page" href="{{route('motivos.admin.login')}}" aria-controls="nav-Motsus">Admin</a>
+                <a class="nav-item nav-link" id="button-logout-page" href="{{route('login')}}" aria-controls="nav-Motsus">Admin</a>
                 <a class="nav-item nav-link active" id="nav-Motces-tab" data-toggle="tab" href="#nav-Motces" role="tab" aria-controls="nav-Motces" aria-selected="true" onClick="set_item('')">Motivo de Cessação</a>
                 <a class="nav-item nav-link" id="nav-Motsus-tab" data-toggle="tab" href="#nav-Motsus" role="tab" aria-controls="nav-Motsus" aria-selected="false" onClick="set_item('')">Motivo de Suspensão</a>
               </div>

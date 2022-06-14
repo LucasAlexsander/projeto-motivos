@@ -16,9 +16,9 @@ class ValidateUser
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!session()->has('conectado')) {
-            return redirect()->route('motivos.login')->with('warning', 'É necessário fazer o login para acessar as páginas.');
-        }
+        // if(!session()->has('conectado')) {
+        //     return redirect()->route('motivos.login')->with('warning', 'É necessário fazer o login para acessar as páginas.');
+        // }
         return $next($request);
     }
 }

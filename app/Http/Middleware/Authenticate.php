@@ -15,7 +15,7 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (! $request->expectsJson()) {
-            return redirect()->route('motivos.login')->with('warning', 'Precisa fazer o login para acessar a página de admin');
+            return redirect()->route('login')->withErrors('Precisa fazer o login para acessar a página de administrador');
         }
     }
 }

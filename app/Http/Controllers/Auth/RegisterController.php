@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -38,7 +40,26 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('validateadmin');
+    }
+
+    public function index() 
+    {
+        return view('Auth.register');
+    }
+
+    public function register(Request $request) {
+        $dados = $request->except('_token');
+
+        $validator = $this->validator($dados);
+
+        if($validator->fails()) {
+            /* Caso dê errado */
+            return redirect()->route('register')->withInput()->withErrors($validator);
+        }
+
+        $user = $this->create($dados);
+        return redirect()->route('motivos.admin');
     }
 
     /**
@@ -50,9 +71,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'nome' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'SIAPE' => ['required', 'string', 'max:11', 'unique:users'],
+            'password' => ['required', 'string', 'min:2', 'confirmed'],
         ]);
     }
 
@@ -65,7 +87,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'nome' => $data['nome'],
+            'SIAPE' => $data['SIAPE'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);

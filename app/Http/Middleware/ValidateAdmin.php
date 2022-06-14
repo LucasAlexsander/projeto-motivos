@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ValidateAdmin
 {
@@ -12,15 +13,19 @@ class ValidateAdmin
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @param  string|null  ...$guards
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next, ...$guards)
     {
-        $result = $request->session()->all();
+        $guards = empty($guards) ? [null] : $guards;
 
-        if(session()->get('profileType') != 1) {
-            return redirect()->route('motivos.home');
+        foreach ($guards as $guard) {
+            if (Auth::guard($guard)->check()) {                
+                return $next($request);
+            }
         }
-        return $next($request);
+
+        return redirect()->route('login')->with('warning', 'Precisa fazer o login para acessar a página de administrador');
     }
 }

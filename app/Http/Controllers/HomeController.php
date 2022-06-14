@@ -20,10 +20,14 @@ class HomeController extends Controller    {/**
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function home() {
-        return view('home');
+        return view('index');
     }
 
     public function adminPage() {
         return view('admin');
+    }
+
+    public function teste() {
+        return view('addMotivo');
     }
 }

@@ -16,9 +16,9 @@ class VerificarSessao
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!(session()->has('profile_type'))) {
-            return redirect()->route('motivos.login')->with('warning', 'Precisa fazer o login para acessar as páginas');
-        }
+        // if(!(session()->has('profile_type'))) {
+        //     return redirect()->route('motivos.login')->with('warning', 'Precisa fazer o login para acessar as páginas');
+        // }
         return $next($request);
     }
 }

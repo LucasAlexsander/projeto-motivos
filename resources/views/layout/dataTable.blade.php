@@ -5,12 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
-    <link href="/assets/css/main.css" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="/vendor/DataTables/datatables.min.css">
-
+    
     <!-- Bootstrap core CSS for DataTable-->
     <link type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    
+    <link href="/assets/css/main.css" type="text/css" rel="stylesheet" />
     <title>Motivos - @yield('title') | INSS</title>
 
   </head>

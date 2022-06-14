@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('SIAPE', 11);
             $table->string('email', 100)->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('senha', 255);
+            $table->string('password', 255);
             $table->tinyinteger('admin')->default(0);
             $table->rememberToken();
             $table->timestamps();
