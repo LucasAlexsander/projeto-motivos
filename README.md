@@ -30,9 +30,29 @@
     php artisan key:generate
     ```
 
-5. Depois de baixar e fazer toda a configuração a pasta raiz deve ter 25 arquivos.
+5. Rodar o migrate para criar as tabelas
+    ```
+    php artisan migrate
+    ```
 
 <br>
+
+<h2>Criando o primeiro usuário</h2>
+
+1. Entre no arquivo `RegisterController`, seu diretorio é:
+    ```
+    app/Http/Controller/Auth/RegisterController
+    ```
+
+2. Comentar a linha `43`, onde tem o conteúdo:
+    ```
+    $this->middleware('validateadmin')
+    ```
+
+3. Entrar na rota `motivos/register` em seu navegador
+
+
+4. Por fim, preencher todos os campos e será criado seu novo usuário
 
 <h2>Iniciando o projeto</h2>
 
