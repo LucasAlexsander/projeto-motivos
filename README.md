@@ -39,20 +39,17 @@
 
 <h2>Criando o primeiro usuário</h2>
 
-1. Entre no arquivo `RegisterController`, seu diretorio é:
-    ```
-    app/Http/Controller/Auth/RegisterController
-    ```
+1. Vá para a página de login, é preciso somente clicar no botão `admin` que fica na tela inicial
 
-2. Comentar a linha `43`, onde tem o conteúdo:
-    ```
-    $this->middleware('validateadmin')
-    ```
+2. Aparecerá um campo escrito `Registrar Novo Usuário`
 
-3. Entrar na rota `motivos/register` em seu navegador
+3. Preencha os campos e será criado o novo usuário
 
+<h2>É importante configurar o arquivo ENV</h2>
 
-4. Por fim, preencher todos os campos e será criado seu novo usuário
+1. Configure o banco de dados, fica entre a linha 11 à 16
+
+2. E por fim, configure o `SMTP` para que possa receber e-mail caso esqueça a senha
 
 <h2>Iniciando o projeto</h2>
 
