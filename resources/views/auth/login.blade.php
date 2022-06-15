@@ -5,7 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header" style="display: flex; justify-content: space-between">
+                    {{ __('Login') }}
+                    
+                    @if ($userCount)
+                        <a href="{{route('novo.usuario')}}">Registrar Novo Usuário</a>
+                    @endif
+
+                </div>
 
                 <div class="card-body">
 
@@ -67,7 +74,7 @@
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
+                                        {{ __('Esqueci Minha Senha?') }}
                                     </a>
                                 @endif
                             </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -42,7 +43,11 @@ class LoginController extends Controller
     }
 
     public function index() {
-        return view('Auth.login');
+        /* Verificar se tem pelo menos 1 usuário */
+
+        $user = User::all()->count() == 0 ? true : false;   
+
+        return view('Auth.login', ['userCount' => $user]);
     }
 
     public function authenticate(Request $request) {

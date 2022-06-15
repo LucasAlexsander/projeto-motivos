@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ConfirmsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class ConfirmPasswordController extends Controller
 {
@@ -18,8 +21,28 @@ class ConfirmPasswordController extends Controller
     | this trait and override any functions that require customization.
     |
     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'throttle:6,1']);
+    }
 
     use ConfirmsPasswords;
+
+    public function index() {
+        return view('Auth.passwords.confirm');
+    }
+
+    public function confirm(Request $request) {
+        if (! Hash::check($request->password, $request->user()->password)) {
+            return back()->withErrors([
+                'password' => ['A senha fornecida não corresponde aos nossos registros.']
+            ]);
+        }
+     
+        $request->session()->passwordConfirmed();
+     
+        return redirect()->route('motivos.admin');
+    }
 
     /**
      * Where to redirect users when the intended url fails.
@@ -33,8 +56,4 @@ class ConfirmPasswordController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 }

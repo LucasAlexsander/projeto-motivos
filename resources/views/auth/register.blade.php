@@ -77,6 +77,9 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
+                                <a href="{{route('motivos.admin')}}" type="submit" class="btn btn-primary">
+                                    Voltar
+                                </a>
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
